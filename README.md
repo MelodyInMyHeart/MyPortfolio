@@ -67,9 +67,74 @@ portfolio-onuabuchi/
 
 ---
 
+## 📦 Git Setup & Workflow
+
+### Initial Setup (One-Time)
+
+If cloning the repository for the first time:
+
+```bash
+# Clone the repository
+git clone https://github.com/MelodyInMyHeart/MyPortfolio.git
+
+# Navigate to project folder
+cd MyPortfolio
+
+# Verify remote is connected
+git remote -v
+# Should output: origin https://github.com/MelodyInMyHeart/MyPortfolio.git
+```
+
+### Regular Development Workflow
+
+After making changes to your portfolio, keep it synchronized with GitHub:
+
+```bash
+# 1. Check what files have changed
+git status
+
+# 2. Stage all changes
+git add .
+
+# 3. Commit with a descriptive message
+git commit -m "Update: Add new project case studies"
+
+# 4. Push changes to GitHub
+git push origin main
+```
+
+### Common Commands
+
+```bash
+# View commit history
+git log --oneline
+
+# View specific changes
+git diff
+
+# Unstage changes (if you accidentally added files)
+git reset HEAD <filename>
+
+# Revert last commit (if needed)
+git reset --soft HEAD~1
+
+# Check branch status
+git branch -vv
+```
+
+### Best Practices
+
+- **Commit frequently** — Make small, meaningful commits (not massive changes all at once)
+- **Use clear messages** — Write descriptive commit messages like "Add video projects section" or "Fix mobile navbar padding"
+- **Push daily** — Keep your GitHub repo up-to-date to avoid losing work
+- **Create branches for big changes** — For major feature work, create a feature branch: `git checkout -b feature/new-feature`
+
+---
+
 ## 🌐 Deploy to Vercel in 60 Seconds
 
 1. Go to [vercel.com](https://vercel.com) and log in with GitHub (`MelodyInMyHeart`).
-2. Import `MelodyInMyHeart/My-Portfolio-site`.
-3. Set Root Directory to `portfolio-onuabuchi`.
+2. Import `MelodyInMyHeart/MyPortfolio`.
+3. Set Root Directory to `./` (or leave blank if it's the repo root).
 4. Click **Deploy**.
+5. Your live portfolio will be available at a Vercel URL, and you can connect a custom domain (`chidera.design`).

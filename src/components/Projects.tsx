@@ -134,7 +134,7 @@ export default function Projects() {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-wrap gap-2 mb-12 pb-6 border-b border-[var(--color-border-subtle)]">
+          <div className="grid grid-cols-2 gap-2 mb-12 pb-6 border-b border-[var(--color-border-subtle)] md:flex md:flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat.value}

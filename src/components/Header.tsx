@@ -31,10 +31,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          scrolled
-            ? "bg-[rgba(17,17,17,0.9)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.08)] py-[1.1rem] px-8"
-            : "bg-transparent py-7 px-8"
+        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] ${            scrolled
+            ? "bg-[rgba(17,17,17,0.9)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.08)] py-[1.1rem] px-4 md:px-8"
+            : "bg-transparent py-5 md:py-7 px-4 md:px-8"
         }`}
         data-theme={theme}
       >

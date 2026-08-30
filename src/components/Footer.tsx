@@ -8,20 +8,24 @@ export default function Footer() {
               ONUABUCHI CHIDERA
             </span>
           </a>
-          <div className="flex gap-5">
-            {["Instagram", "LinkedIn", "Behance", "X (Twitter)", "Vimeo"].map(
-              (s) => (
-                <a
-                  key={s}
-                  href={`https://${s.toLowerCase().replace(" (twitter)", ".com").replace("x", "x.com")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--color-text-secondary)] text-[0.88rem] no-underline transition-colors duration-[0.2s] hover:text-[var(--color-accent-volt)]"
-                >
-                  {s}
-                </a>
-              )
-            )}
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {[
+              { name: "Instagram", url: "https://instagram.com" },
+              { name: "LinkedIn", url: "https://linkedin.com" },
+              { name: "Behance", url: "https://behance.net" },
+              { name: "X (Twitter)", url: "https://x.com" },
+              { name: "Vimeo", url: "https://vimeo.com" },
+            ].map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-text-secondary)] text-[0.88rem] no-underline transition-colors duration-[0.2s] hover:text-[var(--color-accent-volt)]"
+              >
+                {s.name}
+              </a>
+            ))}
           </div>
         </div>
 

@@ -72,49 +72,49 @@ export default function Contact() {
             <div className="flex flex-col gap-4">
               <button
                 onClick={copyEmail}
-                className="flex items-center justify-between bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-md)] py-[1.15rem] px-6 text-[var(--color-text-primary)] no-underline transition-all duration-[0.2s] cursor-pointer hover:border-[var(--color-border-active)] hover:bg-[var(--color-bg-card-hover)] hover:translate-x-1 text-left w-full"
+                className="flex items-center justify-between bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-md)] py-3 px-4 md:py-[1.15rem] md:px-6 text-[var(--color-text-primary)] no-underline transition-all duration-[0.2s] cursor-pointer hover:border-[var(--color-border-active)] hover:bg-[var(--color-bg-card-hover)] hover:translate-x-1 text-left w-full gap-3"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-[var(--radius-sm)] bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-[var(--color-accent-volt)]">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 shrink-0 rounded-[var(--radius-sm)] bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-[var(--color-accent-volt)]">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                       <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                   </div>
-                  <div>
-                    <div className="font-[var(--font-mono)] text-[0.72rem] uppercase text-[var(--color-text-muted)]">
+                  <div className="min-w-0">
+                    <div className="font-[var(--font-mono)] text-[0.65rem] md:text-[0.72rem] uppercase text-[var(--color-text-muted)] truncate">
                       Direct Email (Click to copy)
                     </div>
-                    <div className="text-[0.95rem] font-semibold text-[var(--color-text-primary)]">
+                    <div className="text-[0.8rem] md:text-[0.95rem] font-semibold text-[var(--color-text-primary)] truncate">
                       chidera.visuals@gmail.com
                     </div>
                   </div>
                 </div>
-                <span>📋</span>
+                <span className="shrink-0">📋</span>
               </button>
 
               <a
                 href="https://wa.me/2348000000000?text=Hi%20Chidera,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-md)] py-[1.15rem] px-6 text-[var(--color-text-primary)] no-underline transition-all duration-[0.2s] hover:border-[var(--color-border-active)] hover:bg-[var(--color-bg-card-hover)] hover:translate-x-1"
+                className="flex items-center justify-between bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-md)] py-3 px-4 md:py-[1.15rem] md:px-6 text-[var(--color-text-primary)] no-underline transition-all duration-[0.2s] hover:border-[var(--color-border-active)] hover:bg-[var(--color-bg-card-hover)] hover:translate-x-1 gap-3"
               >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-[var(--radius-sm)] bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-[var(--color-accent-volt)]">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-9 h-9 shrink-0 rounded-[var(--radius-sm)] bg-[rgba(255,255,255,0.05)] flex items-center justify-center text-[var(--color-accent-volt)]">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                     </svg>
                   </div>
-                  <div>
-                    <div className="font-[var(--font-mono)] text-[0.72rem] uppercase text-[var(--color-text-muted)]">
+                  <div className="min-w-0">
+                    <div className="font-[var(--font-mono)] text-[0.65rem] md:text-[0.72rem] uppercase text-[var(--color-text-muted)] truncate">
                       Instant Chat
                     </div>
-                    <div className="text-[0.95rem] font-semibold text-[var(--color-text-primary)]">
+                    <div className="text-[0.8rem] md:text-[0.95rem] font-semibold text-[var(--color-text-primary)] truncate">
                       WhatsApp Messenger
                     </div>
                   </div>
                 </div>
-                <span>→</span>
+                <span className="shrink-0">→</span>
               </a>
             </div>
           </div>

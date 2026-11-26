@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState } from "react";
 import { projectsData, type Project } from "~/data/projects";
 
 const categories = [
@@ -6,33 +6,24 @@ const categories = [
   { label: "Video Editing", value: "video-editing", count: projectsData.filter((p) => p.category === "video-editing").length },
   { label: "Brand Design", value: "brand-design", count: projectsData.filter((p) => p.category === "brand-design").length },
   { label: "Graphic Design", value: "graphic-design", count: projectsData.filter((p) => p.category === "graphic-design").length },
-  { label: "Motion Graphics", value: "motion-graphics", count: projectsData.filter((p) => p.category === "motion-graphics").length },
 ];
 
 function ProjectCard({
   project,
   index,
+  isFeatured,
   onOpen,
 }: {
   project: Project;
   index: number;
+  isFeatured: boolean;
   onOpen: (id: string) => void;
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const onMouseEnter = useCallback(() => {
-    videoRef.current?.play().catch(() => {});
-  }, []);
-
-  const onMouseLeave = useCallback(() => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  }, []);
-
   return (
     <article
-      className="project-card flex flex-col bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] overflow-hidden transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer hover:translate-y-[-6px] hover:border-[var(--color-border-active)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.6)]"
+      className={`project-card flex flex-col bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] overflow-hidden transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer hover:translate-y-[-6px] hover:border-[var(--color-border-active)] hover:shadow-[0_25px_50px_rgba(0,0,0,0.6)] max-md:w-[85%] max-md:shrink-0 max-md:snap-start ${
+        isFeatured ? "md:col-span-2 lg:grid lg:grid-cols-[1.2fr_0.8fr]" : ""
+      }`}
       style={{ animationDelay: `${index * 0.08}s` }}
       tabIndex={0}
       onClick={() => onOpen(project.id)}
@@ -42,12 +33,12 @@ function ProjectCard({
           onOpen(project.id);
         }
       }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
     >
       {/* Thumbnail */}
       <div
-        className="relative w-full overflow-hidden bg-black aspect-[16/10]"
+        className={`relative w-full overflow-hidden bg-black ${
+          project.youtubeId || isFeatured ? "aspect-video" : "aspect-[16/10]"
+        }`}
       >
         <span className="absolute top-4 left-4 font-[var(--font-mono)] text-[0.7rem] font-bold uppercase tracking-[0.08em] bg-[rgba(17,17,17,0.85)] backdrop-blur-[10px] text-[var(--color-accent-volt)] py-1.5 px-3 rounded-full border border-[rgba(212,255,0,0.2)] z-[2]">
           {project.categoryLabel}
@@ -58,18 +49,6 @@ function ProjectCard({
           alt={project.title}
           loading="lazy"
         />
-        {project.videoPreview && (
-          <video
-            ref={videoRef}
-            className="project-video-preview"
-            muted
-            loop
-            playsInline
-            preload="none"
-          >
-            <source src={project.videoPreview} type="video/mp4" />
-          </video>
-        )}
         <div className="project-hover-cta" title="View Case Study">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <line x1="7" y1="17" x2="17" y2="7"></line>
@@ -153,13 +132,14 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {/* Grid on desktop, swipeable horizontal row on mobile */}
+          <div className="max-md:flex max-md:flex-row max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:gap-5 max-md:pb-4 md:grid md:grid-cols-2 md:gap-10">
             {filtered.map((project, i) => (
               <ProjectCard
                 key={project.id}
                 project={project}
                 index={i}
+                isFeatured={i === 0 && (filter === "all" || filter === "video-editing")}
                 onOpen={(id) => {
                   const p = projectsData.find((x) => x.id === id);
                   if (p) setModalProject(p);
@@ -210,15 +190,20 @@ function Modal({
         </button>
 
         {/* Hero media */}
-        {!hasMultiVideos && (
+        {project.youtubeId ? (
+          <div className="w-full aspect-video bg-black relative overflow-hidden">
+            <iframe
+              className="w-full h-full border-0 block"
+              src={`https://www.youtube-nocookie.com/embed/${project.youtubeId}?rel=0`}
+              title={project.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        ) : (
           <div className="w-full max-h-[480px] overflow-hidden bg-black relative">
-            {project.videoPreview ? (
-              <video controls autoPlay loop playsInline className="w-full h-full object-cover block">
-                <source src={project.videoPreview} type="video/mp4" />
-              </video>
-            ) : (
-              <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover block" />
-            )}
+            <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover block" />
           </div>
         )}
 

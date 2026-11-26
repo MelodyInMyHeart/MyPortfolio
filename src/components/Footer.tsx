@@ -10,11 +10,9 @@ export default function Footer() {
           </a>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             {[
-              { name: "Instagram", url: "https://instagram.com" },
-              { name: "LinkedIn", url: "https://linkedin.com" },
-              { name: "Behance", url: "https://behance.net" },
-              { name: "X (Twitter)", url: "https://x.com" },
-              { name: "Vimeo", url: "https://vimeo.com" },
+              { name: "Instagram", url: "https://www.instagram.com/chidera_onuabuchi" },
+              { name: "Behance", url: "https://www.behance.net/onuabuchi" },
+              { name: "TikTok", url: "https://www.tiktok.com/@onuabuchi_chidera" },
             ].map((s) => (
               <a
                 key={s.name}

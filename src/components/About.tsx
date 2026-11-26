@@ -1,15 +1,11 @@
 import { useClock } from "~/hooks/useClock";
 
 const tools = [
-  "Adobe Premiere Pro",
-  "DaVinci Resolve Studio",
-  "Adobe After Effects",
-  "Figma",
-  "Adobe Photoshop",
-  "Adobe Illustrator",
-  "Adobe InDesign",
-  "Blender 3D",
-  "Logic Pro",
+  "DaVinci Resolve",
+  "Premiere Pro",
+  "Photoshop",
+  "Affinity Designer",
+  "Illustrator",
 ];
 
 export default function About() {
@@ -50,20 +46,27 @@ export default function About() {
             </h2>
 
             <p className="text-[var(--color-text-secondary)] text-base leading-[1.75]">
-              I am <strong className="text-[var(--color-text-primary)]">Onuabuchi Chidera</strong>,
-              a multi-disciplinary Visual Designer and Video Editor with over 5
-              years of experience partnering with high-growth startups, creative
-              studios, creators, and international brands.
+              I'm Onuabuchi Chidera, a Visual Designer, Video Editor, and the
+              founder of Creathieves.
             </p>
 
             <p className="text-[var(--color-text-secondary)] text-base leading-[1.75]">
-              Rather than treating video editing and brand design as isolated
-              tasks, I approach them as interconnected narrative tools. Whether
-              editing a commercial with syncopated sound design or engineering a
-              design system in Figma, my goal is always the same:{" "}
-              <strong className="text-[var(--color-text-primary)]">
-                clarity, emotion, and memorability.
-              </strong>
+              I help startups and individuals communicate their ideas, build
+              meaningful connections, and tell their stories through compelling
+              visuals and creative storytelling.
+            </p>
+
+            <p className="text-[var(--color-text-secondary)] text-base leading-[1.75]">
+              Beyond my creative work, I'm building Creathieves, a community
+              dedicated to helping creatives grow, learn, and do better work.
+              Through the community, I share valuable insights, practical tools,
+              creative resources, and industry updates to inspire and equip
+              creatives to take their craft further.
+            </p>
+
+            <p className="text-[var(--color-text-secondary)] text-base leading-[1.75]">
+              I believe great visuals do more than catch attention; they
+              communicate ideas, evoke emotions, and create lasting impressions.
             </p>
 
             <div className="border-l-2 border-[var(--color-accent-volt)] pl-5 italic text-[var(--color-text-primary)] text-[1.05rem]">

@@ -17,6 +17,7 @@ export interface CaseStudy {
 
 export interface Project {
   id: string;
+  youtubeId?: string;
   title: string;
   category: string;
   categoryLabel: string;
@@ -47,6 +48,111 @@ export interface ClientBrand {
 }
 
 export const projectsData: Project[] = [
+  {
+    id: "yt-explained-edit",
+    youtubeId: "ov3p0A_lxp8",
+    title: "explained edit",
+    category: "video-editing",
+    categoryLabel: "Video Editing",
+    client: "YouTube Portfolio",
+    year: "2025",
+    role: "Video Editor & Visual Storyteller",
+    shortDesc: "Explainer-style video edit featuring structured narrative pacing, clean callouts, and rhythmic sound design.",
+    heroImage: "https://img.youtube.com/vi/ov3p0A_lxp8/maxresdefault.jpg",
+    videoPreview: null,
+    aspectRatio: "16/9",
+    featured: true,
+    tags: ["Video Editing", "Explainer", "Pacing", "Sound Design"],
+    caseStudy: {
+      description: "An explainer edit focused on keeping complex information clear, engaging, and visually dynamic from start to finish.",
+      result: "Delivered a crisp, high-retention explainer edit tailored for online audiences.",
+      tools: ["Adobe Premiere Pro", "DaVinci Resolve"]
+    }
+  },
+  {
+    id: "yt-tutorial-edit",
+    youtubeId: "-8z6Uhch9a8",
+    title: "Tutorial edit",
+    category: "video-editing",
+    categoryLabel: "Video Editing",
+    client: "YouTube Portfolio",
+    year: "2025",
+    role: "Video Editor",
+    shortDesc: "Step-by-step tutorial edit built with clean screen pacing, visual highlights, and clear audio-visual flow.",
+    heroImage: "https://img.youtube.com/vi/-8z6Uhch9a8/maxresdefault.jpg",
+    videoPreview: null,
+    aspectRatio: "16/9",
+    featured: false,
+    tags: ["Video Editing", "Tutorial", "Pacing"],
+    caseStudy: {
+      description: "A structured tutorial edit designed to guide viewers effortlessly through each step without losing momentum.",
+      result: "Produced an easy-to-follow instructional video with tight pacing and clean visual cues.",
+      tools: ["Adobe Premiere Pro", "DaVinci Resolve"]
+    }
+  },
+  {
+    id: "yt-interview-edit",
+    youtubeId: "h5LdmFo6Rrs",
+    title: "interview edit",
+    category: "video-editing",
+    categoryLabel: "Video Editing",
+    client: "YouTube Portfolio",
+    year: "2025",
+    role: "Video Editor & Colorist",
+    shortDesc: "Dialogue-driven interview edit balancing natural conversational rhythm, B-roll cutaways, and clean audio.",
+    heroImage: "https://img.youtube.com/vi/h5LdmFo6Rrs/maxresdefault.jpg",
+    videoPreview: null,
+    aspectRatio: "16/9",
+    featured: false,
+    tags: ["Video Editing", "Interview", "Storytelling", "Color Grading"],
+    caseStudy: {
+      description: "An interview edit crafted around conversational flow, tight J-cuts and L-cuts, and balanced color grading.",
+      result: "Shaped raw interview footage into a cohesive, engaging story.",
+      tools: ["Adobe Premiere Pro", "DaVinci Resolve"]
+    }
+  },
+  {
+    id: "yt-birthday-event-edit",
+    youtubeId: "MgkSXvjvW6I",
+    title: "Birthday event edit for the commissioner of health delta state",
+    category: "video-editing",
+    categoryLabel: "Video Editing",
+    client: "Commissioner of Health, Delta State",
+    year: "2025",
+    role: "Event Video Editor & Colorist",
+    shortDesc: "Celebratory event highlight edit capturing key moments, atmosphere, and polished color grading.",
+    heroImage: "https://img.youtube.com/vi/MgkSXvjvW6I/maxresdefault.jpg",
+    videoPreview: null,
+    aspectRatio: "16/9",
+    featured: false,
+    tags: ["Event Edit", "Highlights", "Color Grading", "Sound Design"],
+    caseStudy: {
+      description: "An event highlight reel celebrating the birthday of the Commissioner of Health, Delta State, edited with warm color grading and music-synced pacing.",
+      result: "Delivered a memorable, broadcast-ready event recap film.",
+      tools: ["Adobe Premiere Pro", "DaVinci Resolve"]
+    }
+  },
+  {
+    id: "yt-davinci-text-behind-subject",
+    youtubeId: "bUecrGhxm1s",
+    title: "Use these few steps to add text behind your subject in davinci resolve",
+    category: "video-editing",
+    categoryLabel: "Video Editing",
+    client: "YouTube Portfolio",
+    year: "2025",
+    role: "Video Editor & DaVinci Resolve Specialist",
+    shortDesc: "Concise DaVinci Resolve compositing walkthrough demonstrating how to mask and layer typography behind a moving subject.",
+    heroImage: "https://img.youtube.com/vi/bUecrGhxm1s/maxresdefault.jpg",
+    videoPreview: null,
+    aspectRatio: "16/9",
+    featured: false,
+    tags: ["DaVinci Resolve", "Compositing", "Tutorial", "Typography"],
+    caseStudy: {
+      description: "A focused DaVinci Resolve tutorial breaking down subject isolation and behind-subject text layering in a few practical steps.",
+      result: "Demonstrated clean masking, layering, and pacing in DaVinci Resolve.",
+      tools: ["DaVinci Resolve"]
+    }
+  },
   {
     id: "skillnesst-brand-identity",
     title: "Skillnesst — Brand Identity Development & Visual System",
@@ -141,94 +247,6 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: "my-contents-today",
-    title: "Engaging Social Media Contents — Victor Johnson",
-    category: "video-editing",
-    categoryLabel: "Video Editing",
-    client: "Victor Johnson",
-    year: "2025",
-    role: "Visual Storytelling & Editing",
-    shortDesc: "A dynamic cinematic video edit highlighting narrative pacing, rhythmic sound design, visual flow, and polished color grading.",
-    heroImage: "assets/02-video-projects/my-contents-today-thumb.jpg",
-    videoPreview: "assets/02-video-projects/my-contents-today.mp4",
-    aspectRatio: "16/9",
-    featured: true,
-    tags: ["Video Editing", "Cinematic Pacing", "Color Grading", "Sound Design", "Premiere Pro"],
-    caseStudy: {
-      videos: [
-        { title: "Brand Launch Film", subtitle: "Hero brand introduction with cinematic pacing and sound design", src: "assets/02-video-projects/my-contents-today.mp4" },
-        { title: "Social Media Campaign Cut", subtitle: "Fast-paced vertical and horizontal cuts for Instagram & TikTok", src: "assets/02-video-projects/V2.mp4" },
-        { title: "Product Showcase Reel", subtitle: "Clean product-focused edit with motion graphics overlays", src: "assets/02-video-projects/V3.mp4" },
-        { title: "Event Recap Highlight", subtitle: "Dynamic recap edit from a live brand activation event", src: "assets/02-video-projects/V4.mp4" }
-      ],
-      gallery: [],
-      result: "Delivered 5 broadcast-ready video edits demonstrating advanced narrative pacing, emotional resonance, and high-impact visual storytelling across multiple formats.",
-      tools: ["Adobe Premiere Pro", "DaVinci Resolve"]
-    }
-  },
-  {
-    id: "aura-soundscapes",
-    title: "Aura Soundscapes — 4K Commercial Launch Film",
-    category: "video-editing",
-    categoryLabel: "Video Editing",
-    client: "Aura Audio London",
-    year: "2025",
-    role: "Lead Editor, Sound Design & Colorist",
-    shortDesc: "A high-octane, rhythmic commercial launch film showcasing next-generation spatial acoustic headphones.",
-    heroImage: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: "assets/02-video-projects/my-contents-today.mp4",
-    aspectRatio: "16/9",
-    featured: false,
-    tags: ["Commercial", "Color Grading", "Sound Design", "DaVinci Resolve"],
-    caseStudy: {
-      challenge: "Aura Audio needed a fast-paced, visceral launch video to introduce their luxury spatial audio gear to gen-Z and audiophile creators. The raw footage spanned 12 different camera angles with mismatched ambient audio and varying lighting conditions.",
-      approach: "Built a syncopated editorial rhythm locked tightly to an original synthesized audio track. Applied a custom film emulation LUT in DaVinci Resolve with rich cinematic teal-and-amber contrast, and layered 48 distinct Foley and whoosh elements to elevate the tactile product feel.",
-      workDetails: [
-        "Dynamic pacing matching micro-beats of the music",
-        "Dual-pass color grade with film-grain texture overlay",
-        "Spatial audio panning and sub-bass impact design",
-        "Multi-aspect ratio cutdowns for 9:16 TikTok and 16:9 YouTube"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "Generated 3.2M organic impressions across Twitter/X and YouTube within 14 days of launch, driving a 34% pre-order conversion surge.",
-      tools: ["Adobe Premiere Pro", "DaVinci Resolve Studio", "Logic Pro", "After Effects"]
-    }
-  },
-  {
-    id: "catalyst-docu-series",
-    title: "The Founders' Blueprint — 5-Part Docu-Series",
-    category: "video-editing",
-    categoryLabel: "Video Editing",
-    client: "Catalyst Media Studio",
-    year: "2024",
-    role: "Senior Video Editor & Narrative Storyteller",
-    shortDesc: "An intimate, documentary-style episodic video series covering the unspoken realities of tech founders across emerging markets.",
-    heroImage: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-man-holding-a-vintage-video-camera-in-a-studio-41484-large.mp4",
-    aspectRatio: "16/9",
-    featured: true,
-    tags: ["Docu-Style", "Narrative", "Interviews", "Premiere Pro"],
-    caseStudy: {
-      challenge: "More than 60 hours of raw multi-cam interview footage, B-roll, and archival photography needed to be distilled into five gripping 12-minute episodes without losing emotional nuance.",
-      approach: "Formulated clear narrative arcs for each founder. Used J-cuts, ambient room tones, archival paper textures, and subtle sound transitions to evoke vulnerability. Applied documentary-grade naturalistic color grades to keep human skin tones warm and authentic.",
-      workDetails: [
-        "Story-led scripting and footage assembly from 60+ hours of rushes",
-        "Multi-track audio cleanup with dialogue isolation and leveling",
-        "Archival photo animation with parallax 2.5D depth mapping",
-        "Custom lower thirds and chapter cards"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "Amassed over 1.8M views on YouTube with an average watch retention rate of 68%, outperforming the studio's benchmark by 2.4x.",
-      tools: ["Adobe Premiere Pro", "iZotope RX", "DaVinci Resolve", "After Effects"]
-    }
-  },
-  {
     id: "verve-fashion-week",
     title: "Verve Fashion Collective — Global Runway Visual Identity",
     category: "brand-design",
@@ -257,37 +275,6 @@ export const projectsData: Project[] = [
       ],
       result: "Featured across Vogue Africa, BellaNaija Style, and Dazed, reaching over 500,000 attendees and digital viewers.",
       tools: ["Adobe InDesign", "Photoshop", "Illustrator", "Figma"]
-    }
-  },
-  {
-    id: "nexus-motion-teaser",
-    title: "Nexus Neural OS — 3D Motion Graphics & Launch Teaser",
-    category: "motion-graphics",
-    categoryLabel: "Motion Graphics",
-    client: "Nexus Dynamics AI",
-    year: "2025",
-    role: "Motion Designer & 3D Animator",
-    shortDesc: "Futuristic 3D kinetic typography, glassmorphism UI interactions, and particle simulations introducing an AI operating system.",
-    heroImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-abstract-laser-lights-background-animation-42510-large.mp4",
-    aspectRatio: "16/9",
-    featured: true,
-    tags: ["3D Animation", "Kinetic Type", "UI Motion", "After Effects"],
-    caseStudy: {
-      challenge: "Explain an abstract neural computing paradigm in an exciting, 45-second teaser without bogging down the viewer in technical jargon.",
-      approach: "Used metaphoric glass spheres, floating data nodes, and explosive kinetic typography. Choreographed lighting sweeps and chromatic aberration to give the technology a tactile, premium physical presence.",
-      workDetails: [
-        "3D particle simulation and procedural glowing ribbons",
-        "Kinetic typographic layout timed to modular synthesizer soundscapes",
-        "Looping UI interaction prototypes rendered in 60 FPS",
-        "WebM and MP4 optimized video exports for ultra-fast web embedding"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "Became the #1 trending Product Hunt video of the week and achieved a 41% sign-up rate on the product waitlist.",
-      tools: ["After Effects", "Blender", "Cavalry", "Premiere Pro"]
     }
   },
   {
@@ -490,15 +477,12 @@ export const testimonialsData: Testimonial[] = [
 ];
 
 export const clientBrands: ClientBrand[] = [
-  { name: "SKILLNESST", location: "Global" },
-  { name: "OBODỌMA", location: "Nigeria" },
-  { name: "POGA", location: "E-Commerce" },
-  { name: "LATERRA", location: "Real Estate" },
-  { name: "HIS PRESENCE", location: "Realty" },
-  { name: "SMEBUNDLE", location: "BrandForge" },
-  { name: "NZE'S CUISINE", location: "Hospitality" },
-  { name: "AURA AUDIO", location: "London" },
-  { name: "CATALYST MEDIA", location: "New York" }
+  { name: "Brandforge", location: "" },
+  { name: "Victor Johnson", location: "" },
+  { name: "skillnesst", location: "" },
+  { name: "Smebundle", location: "" },
+  { name: "Onyema Miracle", location: "" },
+  { name: "Brand Series", location: "" }
 ];
 
 export const services = [
@@ -506,7 +490,7 @@ export const services = [
     number: "01",
     title: "Video Editing",
     subtitle: "Editing · Color · Sound · Storytelling",
-    description: "High-tension commercial edits, long-form documentary storytelling, YouTube narrative pacing, and platform-specific viral short-form cuts.",
+    description: "High-retention video edits tailored for creators, brands, and events with clean pacing, sound design, and color grading.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polygon points="23 7 16 12 23 17 23 7"></polygon>
@@ -514,14 +498,34 @@ export const services = [
       </svg>
     ),
     capabilities: [
-      "Commercials & Brand Launch Films",
-      "Documentary & Episodic Editing",
-      "Cinematic Color Grading (DaVinci Resolve)",
-      "Sound Design, Dialogue Cleanup & Foley"
+      "Event coverage",
+      "Talking head videos",
+      "Interviews",
+      "Podcast edits"
     ]
   },
   {
     number: "02",
+    title: "Graphic Design",
+    subtitle: "Campaigns · Social · Print · Thumbnails",
+    description: "High-converting visual assets across digital and physical mediums. Strategic art direction that commands attention across crowded feeds and outdoor spaces.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+      </svg>
+    ),
+    capabilities: [
+      "Stunning social media designs",
+      "Ad designs",
+      "Carousels",
+      "YouTube thumbnails",
+      "Billboards"
+    ]
+  },
+  {
+    number: "03",
     title: "Brand Design",
     subtitle: "Strategy · Identity · Systems",
     description: "Holistic brand identities that position your business for market leadership. Building systems that are flexible, timeless, and immediately recognizable.",
@@ -533,49 +537,10 @@ export const services = [
       </svg>
     ),
     capabilities: [
-      "Visual Identity & Logo Architecture",
-      "Comprehensive Brand Guidelines & Systems",
-      "Typography Curation & Bespoke Lettering",
-      "Packaging Design & Physical Collateral"
-    ]
-  },
-  {
-    number: "03",
-    title: "Graphic Design",
-    subtitle: "Campaigns · Social · Print · Decks",
-    description: "High-converting visual assets across digital and physical mediums. Strategic art direction that commands attention across crowded feeds and outdoor spaces.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-        <polyline points="21 15 16 10 5 21"></polyline>
-      </svg>
-    ),
-    capabilities: [
-      "High-Converting Ad Campaigns & Social Creatives",
-      "Editorial Layouts, Magazines & Books",
-      "Investor Pitch Decks & Keynotes",
-      "Out-of-Home (OOH) Billboards & Exhibition Design"
-    ]
-  },
-  {
-    number: "04",
-    title: "Motion Design",
-    subtitle: "Animation · Kinetic Type · 3D VFX",
-    description: "Dynamic kinetic motion that brings static brands to life. Adding dimension, rhythm, and visual polish that reinforces modern product value.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-        <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-        <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-        <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-      </svg>
-    ),
-    capabilities: [
-      "Kinetic Typography & Title Sequences",
-      "3D Product Reveals & Teaser Animations",
-      "Logo Animation & Brand Motion Language",
-      "UI/App Interaction Prototypes"
+      "Brand identity development",
+      "Visual identity",
+      "Logo architecture",
+      "Event branding"
     ]
   }
 ];

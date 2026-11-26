@@ -68,10 +68,10 @@ export default function SocialProof() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-[2]">
         {/* Metrics */}
         <div className="grid grid-cols-2 gap-6 mb-16 lg:grid-cols-4">
-          <MetricBox value={5} suffix="+" label="Years Experience" />
-          <MetricBox value={80} suffix="+" label="Projects Delivered" />
-          <MetricBox value={45} suffix="M+" label="Video Views Generated" />
-          <MetricBox value={100} suffix="%" label="Client Satisfaction" />
+          <MetricBox value={5} suffix="+" label="Years of experience" />
+          <MetricBox value={100} suffix="+" label="Projects delivered" />
+          <MetricBox value={100} suffix="k+" label="Video views" />
+          <MetricBox value={100} suffix="%" label="Client satisfaction" />
         </div>
 
         {/* Marquee */}

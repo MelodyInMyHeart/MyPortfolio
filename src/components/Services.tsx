@@ -12,12 +12,12 @@ export default function Services() {
             Services & Disciplines
           </h2>
           <p className="text-[var(--color-text-secondary)] text-[1.05rem] max-w-[600px] leading-[1.7]">
-            Four specialized creative pillars designed to take your project from
+            Three specialized creative pillars designed to take your project from
             conceptual strategy to flawless, production-ready execution.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((s) => (
             <div
               key={s.number}

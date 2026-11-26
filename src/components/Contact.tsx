@@ -5,7 +5,6 @@ const serviceOptions = [
   "Video Editing",
   "Brand Design",
   "Graphic Design",
-  "Motion Graphics",
 ];
 
 export default function Contact() {
@@ -32,7 +31,7 @@ export default function Contact() {
     const body = encodeURIComponent(
       `Hi Chidera,\n\nName: ${name}\nEmail: ${email}\nServices Needed: ${selected || "General Design & Video"}\n\nProject Overview:\n${message}\n\nLooking forward to hearing from you!`
     );
-    window.location.href = `mailto:chidera.visuals@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:helloonuabuchi@gmail.com?subject=${subject}&body=${body}`;
     showToast(`Thank you ${name}! Opening your email client to send message...`);
     form.reset();
     setChecked({});
@@ -40,10 +39,10 @@ export default function Contact() {
 
   const copyEmail = () => {
     navigator.clipboard
-      .writeText("chidera.visuals@gmail.com")
-      .then(() => showToast("Email address copied to clipboard: chidera.visuals@gmail.com"))
+      .writeText("helloonuabuchi@gmail.com")
+      .then(() => showToast("Email address copied to clipboard: helloonuabuchi@gmail.com"))
       .catch(() => {
-        window.location.href = "mailto:chidera.visuals@gmail.com";
+        window.location.href = "mailto:helloonuabuchi@gmail.com";
       });
   };
 
@@ -86,7 +85,7 @@ export default function Contact() {
                       Direct Email (Click to copy)
                     </div>
                     <div className="text-[0.8rem] md:text-[0.95rem] font-semibold text-[var(--color-text-primary)] truncate">
-                      chidera.visuals@gmail.com
+                      helloonuabuchi@gmail.com
                     </div>
                   </div>
                 </div>
@@ -94,7 +93,7 @@ export default function Contact() {
               </button>
 
               <a
-                href="https://wa.me/2348000000000?text=Hi%20Chidera,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20project"
+                href="https://wa.me/2349043751135"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-between bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-md)] py-3 px-4 md:py-[1.15rem] md:px-6 text-[var(--color-text-primary)] no-underline transition-all duration-[0.2s] hover:border-[var(--color-border-active)] hover:bg-[var(--color-bg-card-hover)] hover:translate-x-1 gap-3"
@@ -107,10 +106,10 @@ export default function Contact() {
                   </div>
                   <div className="min-w-0">
                     <div className="font-[var(--font-mono)] text-[0.65rem] md:text-[0.72rem] uppercase text-[var(--color-text-muted)] truncate">
-                      Instant Chat
+                      WhatsApp
                     </div>
                     <div className="text-[0.8rem] md:text-[0.95rem] font-semibold text-[var(--color-text-primary)] truncate">
-                      WhatsApp Messenger
+                      09043751135
                     </div>
                   </div>
                 </div>

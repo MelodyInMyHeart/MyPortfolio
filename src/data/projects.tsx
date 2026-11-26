@@ -291,34 +291,145 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: "pulse-activewear-campaign",
-    title: "Pulse Active — High-Intensity Global Campaign Creatives",
+    id: "poga-gadgets-campaign",
+    title: "POGA — Gadgets & Accessories High-Conversion Social & Ad Campaigns",
     category: "graphic-design",
     categoryLabel: "Graphic Design",
-    client: "Pulse Athletics",
-    year: "2024",
-    role: "Lead Graphic Designer & Art Director",
-    shortDesc: "Aggressive, high-contrast digital ad campaigns, social carousels, and retail store point-of-sale graphics for athletic performance gear.",
-    heroImage: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1400&auto=format&fit=crop",
+    client: "POGA Gadgets",
+    year: "2025",
+    role: "Lead Visual & Ad Creative Designer",
+    shortDesc: "Vibrant, high-conversion promotional ad creatives, social media campaigns, and festive marketing graphics for a modern consumer electronics & gadget retail brand.",
+    heroImage: "assets/04-graphic-design/poga/poga democracy day.jpg",
     videoPreview: null,
-    aspectRatio: "16/10",
-    featured: false,
-    tags: ["Ad Campaigns", "Social Strategy", "Retail POS", "Photoshop"],
+    aspectRatio: "1/1",
+    featured: true,
+    tags: ["Social Media", "Ad Creatives", "Campaign Design", "Photoshop", "Illustrator"],
     caseStudy: {
-      challenge: "Pulse needed to stand out against entrenched legacy athletic brands during their Black Friday and Spring drop campaigns with punchy, thumb-stopping design assets.",
-      approach: "Infused gritty halftone textures, bold condensed typography, energetic motion blurs, and neon hazard accents. Created a modular batch of 120+ ad variations tailored for Meta, TikTok, and physical store displays.",
+      challenge: "POGA needed bold, thumb-stopping visual creatives that resonate with tech-savvy youth and gadget enthusiasts across Instagram, WhatsApp, and paid social channels while driving direct e-commerce conversions.",
+      approach: "Created a striking design system utilizing high-contrast color grading, vibrant purple and green brand palettes, bold custom typography, product photo manipulation, and eye-catching celebratory campaign layouts.",
       workDetails: [
-        "120+ high-converting static & animated ad creative variations",
-        "Dynamic retail poster series and window decal designs",
-        "Motion-ready Instagram story and carousel templates",
-        "A/B testing visual framework that boosted CTR by 28%"
+        "11+ high-impact social media and e-commerce promotional creatives",
+        "Democracy Day, New Year, and seasonal marketing ad campaigns",
+        "Product feature callouts and conversion-focused typography hierarchy",
+        "Consistent brand identity across all digital marketing touchpoints"
       ],
       gallery: [
-        "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1000&auto=format&fit=crop"
+        "assets/04-graphic-design/poga/poga democracy day.jpg",
+        "assets/04-graphic-design/poga/2nd friday poga1.jpg",
+        "assets/04-graphic-design/poga/2nd wednesday june poga1.jpg",
+        "assets/04-graphic-design/poga/poga monday23.jpg",
+        "assets/04-graphic-design/poga/poga new year (1).jpg",
+        "assets/04-graphic-design/poga/poga wed 21.jpg",
+        "assets/04-graphic-design/poga/poga wednesday 1.jpg",
+        "assets/04-graphic-design/poga/poga wednesday 2.jpg",
+        "assets/04-graphic-design/poga/sddjjjs.jpg",
+        "assets/04-graphic-design/poga/SmartSelect_20251106_203024_WhatsApp.jpg",
+        "assets/04-graphic-design/poga/SmartSelect_20251113_141128_Gallery.jpg"
       ],
-      result: "Delivered a 3.8x Return on Ad Spend (ROAS) across paid social channels and contributed to a sold-out capsule collection within 48 hours.",
-      tools: ["Adobe Photoshop", "Illustrator", "Figma", "After Effects"]
+      result: "Significantly boosted social media engagement, established an energetic visual presence for POGA across digital platforms, and drove direct traffic to the web storefront.",
+      tools: ["Adobe Photoshop", "Adobe Illustrator"]
+    }
+  },
+  {
+    id: "laterra-realty-marketing",
+    title: "Laterra & His Presence Realty — Real Estate Marketing Collateral",
+    category: "graphic-design",
+    categoryLabel: "Graphic Design",
+    client: "Laterra & His Presence Realty",
+    year: "2025",
+    role: "Creative Designer & Visual Communicator",
+    shortDesc: "Strategic real estate marketing collateral, property allocation announcements, and localized community event campaigns communicating trust, value, and land ownership.",
+    heroImage: "assets/04-graphic-design/real-estate/democray day laterra1.jpg",
+    videoPreview: null,
+    aspectRatio: "1/1",
+    featured: true,
+    tags: ["Real Estate", "Event Marketing", "Campaign Design", "Photoshop"],
+    caseStudy: {
+      challenge: "Real estate campaigns in competitive Nigerian markets require visual communications that evoke trust, economic empowerment, and community solidarity while driving on-the-ground event attendance.",
+      approach: "Designed premium marketing flyers and localized outreach graphics emphasizing land ownership as economic freedom, featuring crisp architectural vector outlines, patriotic Nigerian motifs, and clear event callouts.",
+      workDetails: [
+        "Democracy Day national campaign design with 3D text styling",
+        "Property allocation announcement creatives",
+        "Grassroots Ochanja Market marketing outreach promotional design",
+        "Consistent multi-channel identity for realty brands"
+      ],
+      gallery: [
+        "assets/04-graphic-design/real-estate/democray day laterra1.jpg",
+        "assets/04-graphic-design/real-estate/allocation.jpg",
+        "assets/04-graphic-design/real-estate/his presence1.jpg",
+        "assets/04-graphic-design/real-estate/new month his presence.jpg"
+      ],
+      result: "Drove high turnout for ground marketing activations and reinforced client brand credibility in property investment.",
+      tools: ["Adobe Photoshop", "Adobe Illustrator"]
+    }
+  },
+  {
+    id: "smebundle-carousel-series",
+    title: "SMEBundle by BrandForge — High-Converting Social Carousel Series",
+    category: "graphic-design",
+    categoryLabel: "Graphic Design",
+    client: "SMEBundle (BrandForge)",
+    year: "2025",
+    role: "Lead Visual Designer & Carousel Strategist",
+    shortDesc: "An engaging 6-slide educational Instagram carousel and marketing suite designed to capture attention and convert SME owners into growth bundle clients.",
+    heroImage: "assets/04-graphic-design/sme-bundle/smebundle-carrousel_01.jpg",
+    videoPreview: null,
+    aspectRatio: "1/1",
+    featured: true,
+    tags: ["Carousel Design", "SME Marketing", "Social Strategy", "Photoshop"],
+    caseStudy: {
+      challenge: "SMEs often overlook business development offers unless presented in an irresistible, highly legible visual format that retains high swipe-through rates on Instagram.",
+      approach: "Crafted a 6-part seamless carousel utilizing modern 3D clay-style hand mockups holding mobile screens, warm friendly peach tones, high-contrast typography, and conversational UI message elements.",
+      workDetails: [
+        "6-slide narrative Instagram swipe carousel",
+        "Custom 3D smartphone UI mockup compositions",
+        "Conversational typography and value-driven microcopy hierarchy",
+        "High-contrast action prompts that maximize retention"
+      ],
+      gallery: [
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_01.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_02.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_03.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_04.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_05.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_06.jpg"
+      ],
+      result: "Achieved 3x higher swipe-through completion rates and elevated SMEBundle's brand perception across LinkedIn and Instagram.",
+      tools: ["Adobe Photoshop", "Adobe Illustrator"]
+    }
+  },
+  {
+    id: "commercial-advertising-creatives",
+    title: "Commercial Advertising & Event Creatives — Entertainment & Food",
+    category: "graphic-design",
+    categoryLabel: "Graphic Design",
+    client: "Hotel De La Nice & Nze's Cuisine",
+    year: "2025",
+    role: "Art Director & Print / Digital Designer",
+    shortDesc: "Luxury nightlife event promotion and mouth-watering culinary packaging campaigns blending vibrant color contrast, premium typography, and appetite appeal.",
+    heroImage: "assets/04-graphic-design/commercial-creative/rythm and romance updated.jpg",
+    videoPreview: null,
+    aspectRatio: "1/1",
+    featured: false,
+    tags: ["Event Poster", "Food Packaging", "Advertising", "Photoshop"],
+    caseStudy: {
+      challenge: "Create high-end visual promotional materials for distinct commercial niches: a sultry, elegant live music evening and an appetizing food delivery campaign.",
+      approach: "For 'Rhythm & Romance', utilized dramatic golden lighting, deep velvet shadows, and metallic serif typography. For 'Nze's Cuisine', engineered vibrant floating ingredient composites with energetic callouts.",
+      workDetails: [
+        "Rhythm & Romance VIP concert & nightlife poster",
+        "Nze's Cuisine appetite-stimulating food delivery advertisement",
+        "Corporate 'We Are Hiring' recruitment graphic",
+        "Social media new month and celebratory greeting designs"
+      ],
+      gallery: [
+        "assets/04-graphic-design/commercial-creative/rythm and romance updated.jpg",
+        "assets/04-graphic-design/commercial-creative/nzes cuisine1.jpg",
+        "assets/04-graphic-design/commercial-creative/we are hiring (1).jpg",
+        "assets/04-graphic-design/commercial-creative/new year brandseries.jpg",
+        "assets/04-graphic-design/commercial-creative/monday SME.jpg"
+      ],
+      result: "Sold out table reservations for the Easter Monday event and generated high engagement for regional brand campaigns.",
+      tools: ["Adobe Photoshop", "Adobe Illustrator"]
     }
   },
   {
@@ -351,37 +462,6 @@ export const projectsData: Project[] = [
       result: "Selected for screening at 3 international short-film festivals and garnered 950,000+ views on Vimeo Staff Picks.",
       tools: ["Adobe Premiere Pro", "DaVinci Resolve Studio", "FilmConvert Nitrate"]
     }
-  },
-  {
-    id: "chronos-editorial-magazine",
-    title: "Chronos Quarterly — Contemporary Architecture & Design Book",
-    category: "graphic-design",
-    categoryLabel: "Graphic Design",
-    client: "Chronos Publishing Berlin",
-    year: "2024",
-    role: "Senior Editorial & Layout Designer",
-    shortDesc: "A 240-page hardcover coffee table publication exploring brutalist architecture, modern typography, and minimalist living.",
-    heroImage: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: null,
-    aspectRatio: "16/10",
-    featured: false,
-    tags: ["Editorial", "Book Design", "Print Finishing", "InDesign"],
-    caseStudy: {
-      challenge: "Organize heavy architectural essays and architectural blueprints alongside full-bleed photography into an elegant, timeless hardcover volume.",
-      approach: "Designed a flexible 12-column Swiss grid system, contrasting stark monospaced metadata with large serif headings and spacious margins.",
-      workDetails: [
-        "240-page editorial layout with custom Swiss grid system",
-        "Pre-press color separation and CMYK spot UV specifications",
-        "Bespoke hardcover cloth binding and foil-embossed jacket",
-        "Digital interactive e-pub version with responsive layout"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "First print edition of 5,000 copies sold out within 3 weeks across European concept stores and galleries.",
-      tools: ["Adobe InDesign", "Photoshop", "Illustrator"]
-    }
   }
 ];
 
@@ -411,13 +491,14 @@ export const testimonialsData: Testimonial[] = [
 
 export const clientBrands: ClientBrand[] = [
   { name: "SKILLNESST", location: "Global" },
+  { name: "OBODỌMA", location: "Nigeria" },
+  { name: "POGA", location: "E-Commerce" },
+  { name: "LATERRA", location: "Real Estate" },
+  { name: "HIS PRESENCE", location: "Realty" },
+  { name: "SMEBUNDLE", location: "BrandForge" },
+  { name: "NZE'S CUISINE", location: "Hospitality" },
   { name: "AURA AUDIO", location: "London" },
-  { name: "KORE LABS", location: "San Francisco" },
-  { name: "CATALYST MEDIA", location: "New York" },
-  { name: "VERVE GLOBAL", location: "Lagos" },
-  { name: "NEXUS DYNAMICS", location: "Berlin" },
-  { name: "PULSE ATHLETICS", location: "Toronto" },
-  { name: "CHRONOS PUBLISHING", location: "Stockholm" }
+  { name: "CATALYST MEDIA", location: "New York" }
 ];
 
 export const services = [

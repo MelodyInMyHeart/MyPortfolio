@@ -19,6 +19,16 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) {
+        setMobileOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileOpen]);
+
   const navLinks = [
     { href: "#hero", label: "Home" },
     { href: "#work", label: "Selected Work" },
@@ -31,36 +41,39 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-[100] transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] ${            scrolled
-            ? "bg-[rgba(17,17,17,0.9)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.08)] py-[1.1rem] px-4 md:px-8"
-            : "bg-transparent py-5 md:py-7 px-4 md:px-8"
+        className={`fixed top-0 left-0 w-full box-border z-[100] transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          scrolled
+            ? "bg-[rgba(17,17,17,0.9)] backdrop-blur-[20px] border-b border-[rgba(255,255,255,0.08)] py-3.5 md:py-4 px-5 md:px-8"
+            : "bg-transparent py-4 md:py-5 px-5 md:px-8"
         }`}
         data-theme={theme}
       >
-        <div className="max-w-[1280px] mx-auto flex items-center justify-between">
-          {/* Hamburger */}
+        <div className="max-w-[1280px] mx-auto w-full box-border flex items-center justify-between gap-4">
+          {/* Hamburger (mobile & compact tablet) */}
           <button
-            className="flex flex-col justify-center gap-[6px] bg-transparent border-none cursor-pointer p-[6px_0] w-9 h-9 z-[101]"
+            type="button"
+            className="flex lg:hidden flex-col items-center justify-center gap-[6px] bg-transparent border-none cursor-pointer p-0 w-11 h-11 shrink-0 z-[101] focus-visible:outline-2 focus-visible:outline-[var(--color-accent-volt)] focus-visible:outline-offset-2 rounded-lg"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle navigation menu"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={mobileOpen}
+            aria-controls="mobile-nav-drawer"
           >
             <span
-              className={`block w-[26px] h-[2px] ${
+              className={`block w-6 h-[2px] ${
                 scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
               } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] ${
+              className={`block w-6 h-[2px] ${
                 scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
               } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] ${
+              className={`block w-6 h-[2px] ${
                 scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
               } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "-translate-y-2 -rotate-45" : ""
@@ -68,26 +81,81 @@ export default function Header() {
             />
           </button>
 
-          {/* Right controls */}
-          <div className="flex items-center gap-4">
-            {/* Theme toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-12 h-[26px] bg-[var(--theme-toggle-track)] rounded-full relative cursor-pointer border border-[var(--theme-toggle-border)] transition-colors duration-[0.2s]"
-              title="Toggle theme"
-            >
-              <div
-                className={`absolute top-[3px] w-[18px] h-[18px] bg-[var(--theme-toggle-knob)] rounded-full transition-all duration-[0.2s] ${
-                  theme === "light"
-                    ? "left-[22px] shadow-[0_1px_3px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]"
-                    : "left-[3px]"
+          {/* Desktop Inline Navigation (1024px+) */}
+          <nav className="hidden lg:flex items-center gap-7" aria-label="Primary navigation">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`font-[var(--font-body)] text-[0.95rem] font-medium no-underline whitespace-nowrap transition-colors duration-[0.2s] focus-visible:outline-2 focus-visible:outline-[var(--color-accent-volt)] focus-visible:outline-offset-4 rounded ${
+                  scrolled && theme === "light"
+                    ? "text-[rgba(255,255,255,0.78)] hover:text-[var(--color-accent-volt)]"
+                    : "text-[var(--color-text-secondary)] hover:text-[var(--color-accent-volt)]"
                 }`}
-              />
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Right controls */}
+          <div className="flex items-center gap-3 shrink-0">
+            {/* Day/Night Icon Button */}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
+              aria-pressed={theme === "light"}
+              title="Toggle theme"
+              className={`w-11 h-11 rounded-full relative inline-flex items-center justify-center cursor-pointer border p-0 shrink-0 transition-all duration-[0.2s] motion-reduce:transition-none hover:border-[var(--color-accent-volt)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent-volt)] focus-visible:outline-offset-2 ${
+                scrolled && theme === "light"
+                  ? "bg-[rgba(255,255,255,0.08)] border-[rgba(255,255,255,0.2)] text-white"
+                  : "bg-[var(--theme-toggle-track)] border-[var(--theme-toggle-border)] text-[var(--color-text-primary)]"
+              }`}
+            >
+              {/* Sun icon (dark mode) */}
+              <svg
+                className={`w-5 h-5 absolute transition-all duration-[0.2s] motion-reduce:transition-none ${
+                  theme === "light" ? "opacity-0 rotate-45 scale-75" : "opacity-100 rotate-0 scale-100"
+                }`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+              {/* Moon icon (light mode) */}
+              <svg
+                className={`w-5 h-5 absolute transition-all duration-[0.2s] motion-reduce:transition-none ${
+                  theme === "light" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-45 scale-75"
+                }`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+              </svg>
             </button>
             {/* CTA */}
             <a
               href="#contact"
-              className={`bg-[var(--header-button-bg)] text-[#111] font-[var(--font-body)] text-[0.85rem] font-bold py-[0.55rem] px-[1.4rem] rounded-full border border-[var(--header-button-border)] no-underline transition-all duration-[0.2s] inline-flex items-center justify-center hover:translate-y-[-1px] hover:scale-[1.03] hover:bg-[#d4ff00] ${
+              className={`bg-[var(--header-button-bg)] text-[#111] font-[var(--font-body)] text-[0.85rem] font-bold py-[0.55rem] px-5 md:px-[1.4rem] rounded-full border border-[var(--header-button-border)] no-underline whitespace-nowrap transition-all duration-[0.2s] inline-flex items-center justify-center hover:translate-y-[-1px] hover:scale-[1.03] hover:bg-[#d4ff00] ${
                 theme === "light"
                   ? "shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
                   : "shadow-[0_4px_15px_rgba(255,255,255,0.1)]"
@@ -99,12 +167,14 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
-      <div
-        className={`fixed inset-0 bg-[var(--color-bg-main)] pt-28 px-8 pb-12 flex flex-col gap-6 md:gap-7 transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] z-[99] ${
+      {/* Mobile & Compact Tablet Dropdown */}
+      <nav
+        id="mobile-nav-drawer"
+        aria-label="Mobile navigation"
+        className={`fixed lg:hidden top-[76px] left-0 w-full h-[calc(100dvh-76px)] box-border bg-[var(--color-bg-main)] px-5 pt-4 pb-[calc(1.5rem+env(safe-area-inset-bottom))] flex flex-col gap-1 overflow-y-auto overscroll-contain md:left-auto md:right-8 md:top-[84px] md:max-w-[320px] md:h-auto md:max-h-[calc(100dvh-100px)] md:px-5 md:pt-3 md:pb-5 md:rounded-[var(--radius-md)] md:border md:border-[var(--color-border-active)] md:shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] z-[99] ${
           mobileOpen
-            ? "translate-y-0 opacity-100 pointer-events-auto"
-            : "-translate-y-full opacity-0 pointer-events-none"
+            ? "translate-y-0 opacity-100 pointer-events-auto visible"
+            : "-translate-y-3 opacity-0 pointer-events-none invisible"
         }`}
       >
         {navLinks.map((link) => (
@@ -112,12 +182,13 @@ export default function Header() {
             key={link.href}
             href={link.href}
             onClick={closeMobile}
-            className="font-[var(--font-heading)] text-[clamp(1.65rem,6vw,1.8rem)] md:text-[2rem] font-bold no-underline text-[var(--color-text-primary)] flex items-center justify-between py-2.5 md:py-3 border-b border-[var(--color-border-subtle)] hover:text-[var(--color-accent-volt)] transition-colors duration-[0.2s]"
+            className="font-[var(--font-heading)] text-[clamp(1.25rem,5.5vw,1.75rem)] md:font-[var(--font-body)] md:text-[0.95rem] md:font-semibold font-bold no-underline text-[var(--color-text-primary)] flex items-center justify-between min-h-[48px] md:min-h-[44px] py-3.5 md:py-2.5 border-b border-[var(--color-border-subtle)] hover:text-[var(--color-accent-volt)] focus-visible:text-[var(--color-accent-volt)] transition-colors duration-[0.2s]"
           >
-            {link.label} <span>→</span>
+            <span>{link.label}</span>
+            <span className="text-[var(--color-text-secondary)]">→</span>
           </a>
         ))}
-        <div className="mt-auto pt-8">
+        <div className="mt-auto pt-5">
           <a
             href="#contact"
             onClick={closeMobile}
@@ -126,7 +197,7 @@ export default function Header() {
             Start a Project Together
           </a>
         </div>
-      </div>
+      </nav>
     </>
   );
 }

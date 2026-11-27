@@ -119,18 +119,18 @@ export default function Contact() {
           </div>
 
           {/* Right form */}
-          <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] p-10 flex flex-col gap-6 max-sm:p-6">
-            <form onSubmit={onSubmit}>
+          <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] p-10 max-sm:p-6">
+            <form onSubmit={onSubmit} className="flex flex-col gap-6">
               {/* Services */}
-              <div className="flex flex-col gap-2 mb-6">
+              <div className="flex flex-col gap-2">
                 <label className="font-[var(--font-mono)] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
                   Services You Need
                 </label>
-                <div className="grid grid-cols-2 gap-2 max-[480px]:grid-cols-1">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {serviceOptions.map((s) => (
                     <label
                       key={s}
-                      className={`flex items-center gap-2 py-2.5 px-3.5 rounded-[var(--radius-sm)] text-[0.82rem] cursor-pointer transition-all duration-[0.2s] border ${
+                      className={`flex items-center gap-2.5 min-h-[46px] py-2.5 px-3.5 rounded-[var(--radius-sm)] text-[0.82rem] cursor-pointer transition-all duration-[0.2s] border ${
                         checked[s]
                           ? "border-[var(--color-accent-volt)] bg-[var(--color-accent-volt-dim)] text-[var(--color-text-primary)]"
                           : "bg-[rgba(255,255,255,0.02)] border-[var(--color-border-subtle)] text-[var(--color-text-secondary)] hover:bg-[rgba(255,255,255,0.05)] hover:text-[var(--color-text-primary)]"
@@ -138,18 +138,18 @@ export default function Contact() {
                     >
                       <input
                         type="checkbox"
-                        className="accent-[var(--color-accent-volt)]"
+                        className="accent-[var(--color-accent-volt)] shrink-0"
                         checked={!!checked[s]}
                         onChange={() => toggle(s)}
                       />
-                      <span>{s}</span>
+                      <span className="leading-[1.2]">{s}</span>
                     </label>
                   ))}
                 </div>
               </div>
 
               {/* Name */}
-              <div className="flex flex-col gap-2 mb-6">
+              <div className="flex flex-col gap-2">
                 <label className="font-[var(--font-mono)] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
                   Your Name / Company
                 </label>
@@ -163,7 +163,7 @@ export default function Contact() {
               </div>
 
               {/* Email */}
-              <div className="flex flex-col gap-2 mb-6">
+              <div className="flex flex-col gap-2">
                 <label className="font-[var(--font-mono)] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
                   Email Address
                 </label>
@@ -177,7 +177,7 @@ export default function Contact() {
               </div>
 
               {/* Message */}
-              <div className="flex flex-col gap-2 mb-6">
+              <div className="flex flex-col gap-2">
                 <label className="font-[var(--font-mono)] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
                   Project Details & Goals
                 </label>

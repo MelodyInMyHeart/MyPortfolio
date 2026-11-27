@@ -250,37 +250,6 @@ export const projectsData: Project[] = [
     }
   },
   {
-    id: "verve-fashion-week",
-    title: "Verve Fashion Collective — Global Runway Visual Identity",
-    category: "brand-design",
-    categoryLabel: "Brand Design",
-    client: "Verve Global & Lagos Fashion Week",
-    year: "2025",
-    role: "Lead Brand & Graphic Designer",
-    shortDesc: "High-fashion typographic identity, physical exhibition collateral, and dynamic digital billboards for the Autumn/Winter showcase.",
-    heroImage: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: null,
-    aspectRatio: "16/10",
-    featured: false,
-    tags: ["Fashion", "Typography", "Editorial Print", "OOH Billboards"],
-    caseStudy: {
-      challenge: "Verve needed an avant-garde visual language that fused African textile heritage with high-concept European editorial aesthetics across large format outdoor billboards, VIP invitations, and runway projections.",
-      approach: "Crafted an expressive serif display typography combined with brutalist grid structures and high-contrast monochrome photography. Delivered physical foil-stamped press kits and animated runway LED stage backdrops.",
-      workDetails: [
-        "Custom display serif lettering with high vertical contrast",
-        "Large-format outdoor billboards and transit shelter ads",
-        "VIP invitation suites featuring embossed tactile paper",
-        "Motion-ready motion assets for live runway screens"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "Featured across Vogue Africa, BellaNaija Style, and Dazed, reaching over 500,000 attendees and digital viewers.",
-      tools: ["Adobe InDesign", "Photoshop", "Illustrator", "Figma"]
-    }
-  },
-  {
     id: "luminous-crypto-exchange",
     excludeFromAllWorks: true,
     title: "Luminous Crypto Exchange — Social Media Campaign Designs",
@@ -429,6 +398,7 @@ export const projectsData: Project[] = [
   },
   {
     id: "commercial-advertising-creatives",
+    excludeFromAllWorks: true,
     title: "Commercial Advertising & Event Creatives — Entertainment & Food",
     category: "graphic-design",
     categoryLabel: "Graphic Design",
@@ -459,37 +429,6 @@ export const projectsData: Project[] = [
       ],
       result: "Sold out table reservations for the Easter Monday event and generated high engagement for regional brand campaigns.",
       tools: ["Adobe Photoshop", "Adobe Illustrator"]
-    }
-  },
-  {
-    id: "elysium-cinematic-visual",
-    title: "Elysium — Cinematic Narrative Visual Experience",
-    category: "video-editing",
-    categoryLabel: "Video Editing",
-    client: "Warner Music / Independent Artist",
-    year: "2024",
-    role: "Lead Video Editor & Colorist",
-    shortDesc: "A poetic, cinematic visual piece fusing vintage 16mm film stock aesthetics with modern digital cinematography.",
-    heroImage: "https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=1400&auto=format&fit=crop",
-    videoPreview: "https://assets.mixkit.co/videos/preview/mixkit-night-sky-with-stars-and-a-full-moon-41584-large.mp4",
-    aspectRatio: "16/9",
-    featured: false,
-    tags: ["Cinematic", "Music Video", "16mm Film Look", "DaVinci Resolve"],
-    caseStudy: {
-      challenge: "The director wanted an unhurried, evocative visual mood that felt nostalgic yet polished, with seamless transitions between dream sequences and realistic performance shots.",
-      approach: "Used match cuts, optical speed ramps, organic light leaks, and authentic 16mm halation grain. Scored custom Foley elements to enhance subtle actor movements and environmental breezes.",
-      workDetails: [
-        "Seamless match cuts bridging chronological timelines",
-        "Authentic 16mm analog halation and gate weave simulation",
-        "Custom acoustic reverb modeling for dream sequences",
-        "Festival-ready DCI-P3 theatrical color master"
-      ],
-      gallery: [
-        "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1000&auto=format&fit=crop"
-      ],
-      result: "Selected for screening at 3 international short-film festivals and garnered 950,000+ views on Vimeo Staff Picks.",
-      tools: ["Adobe Premiere Pro", "DaVinci Resolve Studio", "FilmConvert Nitrate"]
     }
   }
 ];

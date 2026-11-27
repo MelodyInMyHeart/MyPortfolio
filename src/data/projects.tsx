@@ -17,6 +17,7 @@ export interface CaseStudy {
 
 export interface Project {
   id: string;
+  excludeFromAllWorks?: boolean;
   youtubeId?: string;
   title: string;
   category: string;
@@ -275,6 +276,41 @@ export const projectsData: Project[] = [
       ],
       result: "Featured across Vogue Africa, BellaNaija Style, and Dazed, reaching over 500,000 attendees and digital viewers.",
       tools: ["Adobe InDesign", "Photoshop", "Illustrator", "Figma"]
+    }
+  },
+  {
+    id: "luminous-crypto-exchange",
+    excludeFromAllWorks: true,
+    title: "Luminous Crypto Exchange — Social Media Campaign Designs",
+    category: "graphic-design",
+    categoryLabel: "Graphic Design",
+    client: "Luminous Exchange",
+    year: "2026",
+    role: "Visual & Social Media Designer",
+    shortDesc: "Social media designs for a crypto exchange brand, featuring dark purple grid layouts, 3D crypto coin and vault visuals, rate table graphics, and seasonal campaign creatives.",
+    heroImage: "assets/04-graphic-design/luminous-crypto-exchange/luminous-flyer3.jpeg",
+    videoPreview: null,
+    aspectRatio: "1/1",
+    featured: false,
+    tags: ["Graphic Design", "Social Media", "Crypto", "Photoshop"],
+    caseStudy: {
+      challenge: "Create a cohesive set of social media graphics for a digital asset and crypto exchange brand covering trading announcements, rate updates, customer appreciation, and seasonal campaigns.",
+      approach: "Built a dark-mode visual system anchored by deep black-to-purple grid backgrounds, bold sans-serif typography, 3D crypto coins, and glowing purple light accents across promotional flyers and holiday creatives.",
+      workDetails: [
+        "Promotional trading flyer featuring a 3D purple wallet, floating crypto coins, and CTA pill",
+        "Customer appreciation graphic with a 3D vault, coins, and luminous light streaks",
+        "Buying and selling rate table creative for digital asset pricing updates",
+        "Seasonal Christmas and 2026 New Year social media campaign visuals"
+      ],
+      gallery: [
+        "assets/04-graphic-design/luminous-crypto-exchange/luminous-flyer3.jpeg",
+        "assets/04-graphic-design/luminous-crypto-exchange/luminous-flyer.jpeg",
+        "assets/04-graphic-design/luminous-crypto-exchange/luminous-flyer2.jpeg",
+        "assets/04-graphic-design/luminous-crypto-exchange/luminous-happy christmas.jpeg",
+        "assets/04-graphic-design/luminous-crypto-exchange/luminous-new year.jpeg"
+      ],
+      result: "Delivered a consistent multi-post social media visual suite ready for promotional, rate-card, and seasonal publishing.",
+      tools: ["Adobe Photoshop"]
     }
   },
   {

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { projectsData, type Project } from "~/data/projects";
 
 const categories = [
-  { label: "All Works", value: "all", count: projectsData.length },
+  { label: "All Works", value: "all", count: projectsData.filter((p) => !p.excludeFromAllWorks).length },
   { label: "Video Editing", value: "video-editing", count: projectsData.filter((p) => p.category === "video-editing").length },
   { label: "Brand Design", value: "brand-design", count: projectsData.filter((p) => p.category === "brand-design").length },
   { label: "Graphic Design", value: "graphic-design", count: projectsData.filter((p) => p.category === "graphic-design").length },
@@ -92,7 +92,7 @@ export default function Projects() {
 
   const filtered =
     filter === "all"
-      ? projectsData
+      ? projectsData.filter((p) => !p.excludeFromAllWorks)
       : projectsData.filter((p) => p.category === filter);
 
   return (

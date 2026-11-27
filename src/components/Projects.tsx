@@ -1,5 +1,99 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { projectsData, type Project } from "~/data/projects";
+
+/* ── SMEBundle slide carousel ───────────────────────────────────────────── */
+function SmbCarousel({ slides, title }: { slides: string[]; title: string }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const total = slides.length;
+
+  const prefersReduced =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const goTo = useCallback(
+    (idx: number) => {
+      const clamped = Math.max(0, Math.min(idx, total - 1));
+      const track = trackRef.current;
+      if (!track) return;
+      const slide = track.children[clamped] as HTMLElement;
+      track.scrollTo({
+        left: slide.offsetLeft,
+        behavior: prefersReduced ? "auto" : "smooth",
+      });
+      setActiveIdx(clamped);
+    },
+    [total, prefersReduced]
+  );
+
+  return (
+    <div className="smb-carousel-wrap" aria-label="Design carousel">
+      <div
+        ref={trackRef}
+        className="smb-carousel-track"
+        tabIndex={0}
+        aria-live="polite"
+        onKeyDown={(e) => {
+          if (e.key === "ArrowRight") { e.preventDefault(); goTo(activeIdx + 1); }
+          if (e.key === "ArrowLeft")  { e.preventDefault(); goTo(activeIdx - 1); }
+        }}
+      >
+        {slides.map((src, i) => (
+          <div
+            key={i}
+            className="smb-slide"
+            role="group"
+            aria-label={`Slide ${i + 1} of ${total}`}
+          >
+            <img
+              src={src}
+              alt={`${title} carousel slide ${i + 1}`}
+              loading="lazy"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="smb-carousel-controls">
+        <button
+          type="button"
+          className="smb-arrow smb-prev"
+          aria-label="Previous slide"
+          disabled={activeIdx === 0}
+          onClick={() => goTo(activeIdx - 1)}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+        <span className="smb-counter">
+          {String(activeIdx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </span>
+        <div className="smb-dots">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              className={`smb-dot${i === activeIdx ? " active" : ""}`}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => goTo(i)}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          className="smb-arrow smb-next"
+          aria-label="Next slide"
+          disabled={activeIdx === total - 1}
+          onClick={() => goTo(activeIdx + 1)}
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+}
 
 const categories = [
   { label: "All Works", value: "all", count: projectsData.filter((p) => !p.excludeFromAllWorks).length },
@@ -291,8 +385,38 @@ function Modal({
             </div>
           )}
 
-          {/* Image gallery */}
-          {cs.gallery && cs.gallery.length > 0 && !hasMultiVideos && (
+          {/* SMEBundle: horizontal CSS carousel */}
+          {cs.carouselSlides && cs.carouselSlides.length > 0 && (
+            <div className="flex flex-col gap-4 w-full">
+              <span className="font-[var(--font-mono)] text-[0.75rem] uppercase tracking-[0.12em] text-[var(--color-accent-volt)]">
+                Carousel Design
+              </span>
+              <SmbCarousel slides={cs.carouselSlides} title={project.title} />
+            </div>
+          )}
+
+          {/* SMEBundle: standalone social media designs */}
+          {cs.standaloneDesigns && cs.standaloneDesigns.length > 0 && (
+            <div className="flex flex-col gap-4 w-full">
+              <span className="font-[var(--font-mono)] text-[0.75rem] uppercase tracking-[0.12em] text-[var(--color-accent-volt)]">
+                Social Media Designs
+              </span>
+              <div className="smb-flyers-grid">
+                {cs.standaloneDesigns.map((src, i) => (
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`${project.title} social media design ${i + 1}`}
+                    loading="lazy"
+                    className="smb-flyer-img"
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Image gallery (all other projects — only when no carousel) */}
+          {cs.gallery && cs.gallery.length > 0 && !cs.carouselSlides && !hasMultiVideos && (
             <div className="flex flex-col gap-8 w-full">
               {cs.gallery.map((img, i) => (
                 <img

@@ -10,6 +10,8 @@ export interface CaseStudy {
   description?: string;
   workDetails?: string[];
   gallery?: string[];
+  carouselSlides?: string[];
+  standaloneDesigns?: string[];
   videos?: CaseStudyVideo[];
   result?: string;
   tools?: string[];
@@ -395,7 +397,7 @@ export const projectsData: Project[] = [
     year: "2025",
     role: "Lead Visual Designer & Carousel Strategist",
     shortDesc: "An engaging 6-slide educational Instagram carousel and marketing suite designed to capture attention and convert SME owners into growth bundle clients.",
-    heroImage: "assets/04-graphic-design/sme-bundle/smebundle-carrousel_01.jpg",
+    heroImage: "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_01.jpg",
     videoPreview: null,
     aspectRatio: "1/1",
     featured: true,
@@ -409,13 +411,17 @@ export const projectsData: Project[] = [
         "Conversational typography and value-driven microcopy hierarchy",
         "High-contrast action prompts that maximize retention"
       ],
-      gallery: [
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_01.jpg",
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_02.jpg",
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_03.jpg",
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_04.jpg",
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_05.jpg",
-        "assets/04-graphic-design/sme-bundle/smebundle-carrousel_06.jpg"
+      carouselSlides: [
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_01.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_02.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_03.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_04.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_05.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-carousel/smebundle-carrousel_06.jpg"
+      ],
+      standaloneDesigns: [
+        "assets/04-graphic-design/sme-bundle/smebundle-flyer%201.jpg",
+        "assets/04-graphic-design/sme-bundle/smebundle-flyer2.jpg"
       ],
       result: "Achieved 3x higher swipe-through completion rates and elevated SMEBundle's brand perception across LinkedIn and Instagram.",
       tools: ["Adobe Photoshop", "Adobe Illustrator"]

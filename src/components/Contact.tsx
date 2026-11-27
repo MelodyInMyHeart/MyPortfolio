@@ -1,5 +1,4 @@
-import { useState, type FormEvent } from "react";
-import { showGlobalToast } from "~/components/ToastContainer";
+import { useState, useRef, type FormEvent } from "react";
 
 const serviceOptions = [
   "Video Editing",
@@ -7,43 +6,92 @@ const serviceOptions = [
   "Graphic Design",
 ];
 
+type FeedbackState = { type: "success" | "error"; message: string } | null;
+
 export default function Contact() {
-  const showToast = showGlobalToast;
   const [checked, setChecked] = useState<Record<string, boolean>>({});
+  const [sending, setSending] = useState(false);
+  const [feedback, setFeedback] = useState<FeedbackState>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const toggle = (value: string) =>
     setChecked((prev) => ({ ...prev, [value]: !prev[value] }));
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setFeedback(null);
     const form = e.currentTarget;
-    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value.trim();
-    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value.trim();
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)?.value.trim();
+
+    const nameEl    = form.elements.namedItem("name")    as HTMLInputElement;
+    const emailEl   = form.elements.namedItem("email")   as HTMLInputElement;
+    const messageEl = form.elements.namedItem("message") as HTMLTextAreaElement;
+
+    const name    = nameEl?.value.trim()    ?? "";
+    const email   = emailEl?.value.trim()   ?? "";
+    const message = messageEl?.value.trim() ?? "";
     const selected = Object.keys(checked).filter((k) => checked[k]).join(", ");
 
-    if (!name || !email || !message) {
-      showToast("Please fill in your name, email, and project message.", );
+    // Client-side validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!name) {
+      setFeedback({ type: "error", message: "Please enter your name or company." });
+      nameEl?.focus();
+      return;
+    }
+    if (!email || !emailRegex.test(email)) {
+      setFeedback({ type: "error", message: "Please enter a valid email address." });
+      emailEl?.focus();
+      return;
+    }
+    if (!message) {
+      setFeedback({ type: "error", message: "Please describe your project before sending." });
+      messageEl?.focus();
       return;
     }
 
-    const subject = encodeURIComponent(`Project Inquiry from ${name} [${selected || "Creative Work"}]`);
-    const body = encodeURIComponent(
-      `Hi Chidera,\n\nName: ${name}\nEmail: ${email}\nServices Needed: ${selected || "General Design & Video"}\n\nProject Overview:\n${message}\n\nLooking forward to hearing from you!`
-    );
-    window.location.href = `mailto:helloonuabuchi@gmail.com?subject=${subject}&body=${body}`;
-    showToast(`Thank you ${name}! Opening your email client to send message...`);
-    form.reset();
-    setChecked({});
+    setSending(true);
+
+    const formData = new FormData();
+    formData.set("access_key", "eb8efc30-0ec6-4813-9453-e9d754fffdc8");
+    formData.set("subject", `New Project Inquiry from ${name}`);
+    formData.set("replyto", email);
+    formData.set("from_name", "Portfolio Contact Form");
+    formData.set("botcheck", "");          // honeypot — must be empty
+    formData.set("name", name);
+    formData.set("email", email);
+    formData.set("message", `Services Needed: ${selected || "Not specified"}\n\nProject Details:\n${message}`);
+
+    try {
+      const res  = await fetch("https://api.web3forms.com/submit", {
+        method:  "POST",
+        headers: { Accept: "application/json" },
+        body:    formData,
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setFeedback({ type: "success", message: "✓ Thanks! Your inquiry has been sent. I'll reply within 24 hours." });
+        form.reset();
+        setChecked({});
+      } else {
+        throw new Error(data.message ?? "Submission rejected");
+      }
+    } catch (err) {
+      console.error("Web3Forms error:", err);
+      setFeedback({
+        type: "error",
+        message: "Something went wrong. Please email me directly at helloonuabuchi@gmail.com.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   const copyEmail = () => {
     navigator.clipboard
       .writeText("helloonuabuchi@gmail.com")
-      .then(() => showToast("Email address copied to clipboard: helloonuabuchi@gmail.com"))
-      .catch(() => {
-        window.location.href = "mailto:helloonuabuchi@gmail.com";
-      });
+      .then(() => alert("Copied: helloonuabuchi@gmail.com"))
+      .catch(() => { window.location.href = "mailto:helloonuabuchi@gmail.com"; });
   };
 
   return (
@@ -120,7 +168,38 @@ export default function Contact() {
 
           {/* Right form */}
           <div className="bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] p-10 max-sm:p-6">
-            <form onSubmit={onSubmit} className="flex flex-col gap-6">
+            <form ref={formRef} onSubmit={onSubmit} className="flex flex-col gap-6" noValidate>
+              {/* Honeypot — hidden from humans, traps bots */}
+              <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex={-1} aria-hidden="true" />
+
+              {/* Feedback message */}
+              {feedback && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                  className={`px-4 py-3 rounded-[var(--radius-sm)] text-[0.9rem] leading-relaxed border-l-4 ${
+                    feedback.type === "success"
+                      ? "bg-[rgba(166,255,77,0.08)] border-[var(--color-accent-volt)] text-[var(--color-accent-volt)]"
+                      : "bg-[rgba(255,80,80,0.08)] border-[#ff5050] text-[#ff7070]"
+                  }`}
+                >
+                  {feedback.type === "error" && feedback.message.includes("helloonuabuchi@gmail.com") ? (
+                    <>
+                      Something went wrong. Please email me directly at{" "}
+                      <a
+                        href="mailto:helloonuabuchi@gmail.com"
+                        className="underline underline-offset-2 hover:opacity-80"
+                      >
+                        helloonuabuchi@gmail.com
+                      </a>
+                      .
+                    </>
+                  ) : (
+                    feedback.message
+                  )}
+                </div>
+              )}
               {/* Services */}
               <div className="flex flex-col gap-2">
                 <label className="font-[var(--font-mono)] text-[0.75rem] font-semibold uppercase tracking-[0.08em] text-[var(--color-text-secondary)]">
@@ -192,9 +271,14 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full bg-[var(--color-accent-volt)] text-[#111] font-bold py-3.5 px-7 rounded-full border-none cursor-pointer transition-all duration-[0.2s] hover:translate-y-[-2px] hover:shadow-[0_8px_25px_rgba(212,255,0,0.35)]"
+                disabled={sending}
+                className={`w-full bg-[var(--color-accent-volt)] text-[#111] font-bold py-3.5 px-7 rounded-full border-none transition-all duration-[0.2s] ${
+                  sending
+                    ? "opacity-70 cursor-not-allowed"
+                    : "cursor-pointer hover:translate-y-[-2px] hover:shadow-[0_8px_25px_rgba(212,255,0,0.35)]"
+                }`}
               >
-                Send Project Inquiry →
+                {sending ? "Sending…" : "Send Project Inquiry →"}
               </button>
             </form>
           </div>

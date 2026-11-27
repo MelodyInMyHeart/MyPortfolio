@@ -108,6 +108,13 @@ body {
   --footer-brand-color: #000000;
 }
 
+/* Light mode hero background overlay: multiply blend so dark areas show through */
+[data-theme="light"] .hero-bg-overlay {
+  mix-blend-mode: multiply !important;
+  opacity: 0.09 !important;
+  filter: brightness(0.6) contrast(1.15);
+}
+
 /* ─── Hero Animations ──────────────────────────────────────────────────────── */
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(35px); }
@@ -372,6 +379,7 @@ body {
   transform: translateY(0) scale(1);
 }
 
+/* ── Close Button (shared across all Selected Works project detail views) ── */
 .modal-close-btn {
   position: absolute;
   top: 12px;
@@ -379,21 +387,42 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: rgba(20, 20, 20, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 30;
-  transition: all var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 .modal-close-btn:hover {
   background: var(--color-accent-volt);
   color: #111111;
+  border-color: var(--color-accent-volt);
+  box-shadow: 0 4px 14px rgba(212, 255, 0, 0.3);
   transform: rotate(90deg);
+}
+.modal-close-btn:active {
+  transform: rotate(90deg) scale(0.92);
+}
+
+/* Light mode close button */
+[data-theme="light"] .modal-close-btn {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+  color: #252525;
+}
+[data-theme="light"] .modal-close-btn:hover {
+  background: var(--color-accent-volt);
+  color: #111111;
+  border-color: var(--color-accent-volt);
+  box-shadow: 0 4px 14px rgba(163, 204, 0, 0.3);
 }
 
 /* ─── Toast ────────────────────────────────────────────────────────────────── */

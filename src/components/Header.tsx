@@ -46,17 +46,23 @@ export default function Header() {
             aria-expanded={mobileOpen}
           >
             <span
-              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] ${
+                scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
+              } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] ${
+                scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
+              } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] ${
+                scrolled && !mobileOpen ? "bg-white" : "bg-[var(--header-icon)]"
+              } rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
@@ -95,7 +101,7 @@ export default function Header() {
 
       {/* Mobile drawer */}
       <div
-        className={`fixed inset-0 bg-[var(--color-bg-main)] pt-28 px-8 pb-12 flex flex-col gap-7 transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] z-[99] ${
+        className={`fixed inset-0 bg-[var(--color-bg-main)] pt-28 px-8 pb-12 flex flex-col gap-6 md:gap-7 transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] z-[99] ${
           mobileOpen
             ? "translate-y-0 opacity-100 pointer-events-auto"
             : "-translate-y-full opacity-0 pointer-events-none"
@@ -106,7 +112,7 @@ export default function Header() {
             key={link.href}
             href={link.href}
             onClick={closeMobile}
-            className="font-[var(--font-heading)] text-[2rem] font-bold no-underline text-[var(--color-text-primary)] flex items-center justify-between py-3 border-b border-[var(--color-border-subtle)] hover:text-[var(--color-accent-volt)] transition-colors duration-[0.2s]"
+            className="font-[var(--font-heading)] text-[clamp(1.65rem,6vw,1.8rem)] md:text-[2rem] font-bold no-underline text-[var(--color-text-primary)] flex items-center justify-between py-2.5 md:py-3 border-b border-[var(--color-border-subtle)] hover:text-[var(--color-accent-volt)] transition-colors duration-[0.2s]"
           >
             {link.label} <span>→</span>
           </a>

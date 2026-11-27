@@ -100,57 +100,22 @@ export default function Header() {
 
           {/* Right controls */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Day/Night Icon Button */}
+            {/* Theme toggle */}
             <button
               type="button"
               onClick={toggleTheme}
               aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
               aria-pressed={theme === "light"}
+              className="w-12 h-[26px] bg-[var(--theme-toggle-track)] rounded-full relative cursor-pointer border border-[var(--theme-toggle-border)] transition-colors duration-[0.2s] shrink-0 focus-visible:outline-2 focus-visible:outline-[var(--color-accent-volt)] focus-visible:outline-offset-2"
               title="Toggle theme"
-              className={`w-11 h-11 rounded-full relative inline-flex items-center justify-center cursor-pointer border p-0 shrink-0 transition-all duration-[0.2s] motion-reduce:transition-none hover:border-[var(--color-accent-volt)] focus-visible:outline-2 focus-visible:outline-[var(--color-accent-volt)] focus-visible:outline-offset-2 ${
-                scrolled && theme === "light"
-                  ? "bg-[rgba(255,255,255,0.08)] border-[rgba(255,255,255,0.2)] text-white"
-                  : "bg-[var(--theme-toggle-track)] border-[var(--theme-toggle-border)] text-[var(--color-text-primary)]"
-              }`}
             >
-              {/* Sun icon (dark mode) */}
-              <svg
-                className={`w-5 h-5 absolute transition-all duration-[0.2s] motion-reduce:transition-none ${
-                  theme === "light" ? "opacity-0 rotate-45 scale-75" : "opacity-100 rotate-0 scale-100"
+              <div
+                className={`absolute top-[3px] w-[18px] h-[18px] bg-[var(--theme-toggle-knob)] rounded-full transition-all duration-[0.2s] ${
+                  theme === "light"
+                    ? "left-[22px] shadow-[0_1px_3px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]"
+                    : "left-[3px]"
                 }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <circle cx="12" cy="12" r="4"></circle>
-                <path d="M12 2v2"></path>
-                <path d="M12 20v2"></path>
-                <path d="m4.93 4.93 1.41 1.41"></path>
-                <path d="m17.66 17.66 1.41 1.41"></path>
-                <path d="M2 12h2"></path>
-                <path d="M20 12h2"></path>
-                <path d="m6.34 17.66-1.41 1.41"></path>
-                <path d="m19.07 4.93-1.41 1.41"></path>
-              </svg>
-              {/* Moon icon (light mode) */}
-              <svg
-                className={`w-5 h-5 absolute transition-all duration-[0.2s] motion-reduce:transition-none ${
-                  theme === "light" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-45 scale-75"
-                }`}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
-              </svg>
+              />
             </button>
             {/* CTA */}
             <a

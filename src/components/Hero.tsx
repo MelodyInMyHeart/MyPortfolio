@@ -19,7 +19,7 @@ export default function Hero() {
     >
       {/* Background overlay */}
       <div
-        className="hero-bg-overlay absolute inset-0 opacity-[0.07] mix-blend-screen pointer-events-none z-0"
+        className="hero-bg-overlay absolute inset-0 pointer-events-none z-0"
         style={{
           backgroundImage: "url('/assets/01-profile/hero-overlay-timeline.png')",
           backgroundPosition: "center bottom",

@@ -108,11 +108,19 @@ body {
   --footer-brand-color: #000000;
 }
 
-/* Light mode hero background overlay: multiply blend so dark areas show through */
+/* Hero decorative background overlay: dark & light mode blending */
+.hero-bg-overlay {
+  opacity: 0.16;
+  mix-blend-mode: screen;
+  filter: invert(1) hue-rotate(180deg) contrast(1.25) brightness(0.9) saturate(0.85);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 30%, #000 70%, rgba(0, 0, 0, 0.85) 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 30%, #000 70%, rgba(0, 0, 0, 0.85) 100%);
+}
+
 [data-theme="light"] .hero-bg-overlay {
-  mix-blend-mode: multiply !important;
-  opacity: 0.09 !important;
-  filter: brightness(0.6) contrast(1.15);
+  mix-blend-mode: multiply;
+  opacity: 0.22;
+  filter: brightness(1.02) contrast(1.75) saturate(0.75);
 }
 
 /* ─── Hero Animations ──────────────────────────────────────────────────────── */

@@ -92,7 +92,7 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 gap-7 min-[640px]:grid-cols-2 items-stretch">
+        <div className="grid grid-cols-1 gap-7 min-[640px]:grid-cols-2 min-[640px]:auto-rows-fr items-stretch">
           {testimonialsData.map((t, i) => (
             <div
               key={i}
@@ -102,7 +102,7 @@ export default function SocialProof() {
               <p className="text-[0.95rem] leading-[1.7] text-[var(--color-text-secondary)]">
                 "{t.quote}"
               </p>
-              <div className="flex items-center gap-3.5 pt-4 border-t border-[var(--color-border-subtle)] mt-auto">
+              <div className="flex items-center gap-3.5 pt-4 min-h-[76px] border-t border-[var(--color-border-subtle)] mt-auto">
                 <div className="w-11 h-11 flex-shrink-0">
                   {t.avatar ? (
                     <img

@@ -454,25 +454,32 @@ export const projectsData: Project[] = [
 
 export const testimonialsData: Testimonial[] = [
   {
-    quote: "Chidera is one of the rare creative minds who understands both narrative tension in video and meticulous typography in branding. His launch video generated over 3.2M impressions and converted higher than any campaign we've run.",
-    name: "Marcus Vance",
-    role: "Creative Director",
-    company: "Aura Audio London",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+    quote: "Chidera shot and edited my videos from start to finish, and the response was immediate. In 4 months, my content crossed 100K views across all platforms. He understands rhythm and pacing, which is exactly what music-driven content needs.",
+    name: "Victor Johnson",
+    role: "Music Producer",
+    company: "",
+    avatar: ""
   },
   {
-    quote: "Working with Chidera transformed how Kore presents itself internationally. He turned our initial ideas into a world-class brand system that directly helped us close our $4.5M seed round.",
-    name: "Amina Adeleke",
-    role: "Co-Founder & VP Product",
-    company: "Kore Technologies",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=200&auto=format&fit=crop"
+    quote: "I didn't expect video to work this well for my field, but Chidera made it happen. He shot and edited my content, and in 4 months we passed 100K views across platforms. He made my expertise easy to watch and easy to trust.",
+    name: "Miracle Onyema",
+    role: "Accountant",
+    company: "",
+    avatar: ""
   },
   {
-    quote: "The speed, taste level, and storytelling precision Chidera brings to video editing is unmatched. He took 60 hours of raw interview rushes and turned it into our most-watched docu-series.",
-    name: "Liam O'Connor",
-    role: "Head of Content",
-    company: "Catalyst Media Studio",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop"
+    quote: "Chidera built our visual and brand identity from the ground up, then stayed on for 3 months of social media designs. Everything felt consistent, clear and credible, which matters a lot when you're building trust in education. He gave skillnesst a look we're proud of.",
+    name: "skillnesst",
+    role: "Ed Tech Brand",
+    company: "",
+    avatar: ""
+  },
+  {
+    quote: "Chidera developed our visual and brand identity, and it changed how customers see us. In a trade where trust matters, our brand now looks professional, reliable and established. He took the time to understand our work and turned it into an identity we're proud of.",
+    name: "Donalds",
+    role: "Household Repairs (Solar, AC & Electrical)",
+    company: "",
+    avatar: ""
   }
 ];
 

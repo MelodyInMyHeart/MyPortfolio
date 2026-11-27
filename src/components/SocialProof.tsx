@@ -92,7 +92,7 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 gap-7 max-[880px]:grid-cols-1 min-[880px]:grid-cols-3">
+        <div className="grid grid-cols-1 gap-7 min-[640px]:grid-cols-2">
           {testimonialsData.map((t, i) => (
             <div
               key={i}
@@ -103,17 +103,26 @@ export default function SocialProof() {
                 "{t.quote}"
               </p>
               <div className="flex items-center gap-3.5 pt-4 border-t border-[var(--color-border-subtle)]">
-                <img
-                  className="w-11 h-11 rounded-full object-cover border border-[var(--color-border-subtle)]"
-                  src={t.avatar}
-                  alt={t.name}
-                />
+                {t.avatar ? (
+                  <img
+                    className="w-11 h-11 rounded-full object-cover border border-[var(--color-border-subtle)] flex-shrink-0"
+                    src={t.avatar}
+                    alt={`${t.name} profile photo`}
+                  />
+                ) : (
+                  <svg className="w-11 h-11 flex-shrink-0" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-label={`${t.name} profile photo`}>
+                    <circle cx="22" cy="22" r="22" fill="#1e1e1e"/>
+                    <text x="22" y="27" textAnchor="middle" fontFamily="sans-serif" fontSize="14" fontWeight="700" fill="#d4ff00">
+                      {t.name.split(' ').map((w: string) => w[0]).join('').slice(0, 2).toUpperCase()}
+                    </text>
+                  </svg>
+                )}
                 <div className="flex flex-col">
                   <span className="font-[var(--font-heading)] text-[0.95rem] font-bold text-[var(--color-text-primary)]">
                     {t.name}
                   </span>
                   <span className="font-[var(--font-mono)] text-[0.72rem] text-[var(--color-text-muted)]">
-                    {t.role} · {t.company}
+                    {t.role}{t.company ? ` · ${t.company}` : ''}
                   </span>
                 </div>
               </div>

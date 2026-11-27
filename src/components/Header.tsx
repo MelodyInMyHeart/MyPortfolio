@@ -46,17 +46,17 @@ export default function Header() {
             aria-expanded={mobileOpen}
           >
             <span
-              className={`block w-[26px] h-[2px] bg-white rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "translate-y-2 rotate-45" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] bg-white rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block w-[26px] h-[2px] bg-white rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              className={`block w-[26px] h-[2px] bg-[var(--header-icon)] rounded-sm transition-all duration-[0.2s] ease-[cubic-bezier(0.16,1,0.3,1)] ${
                 mobileOpen ? "-translate-y-2 -rotate-45" : ""
               }`}
             />
@@ -67,21 +67,25 @@ export default function Header() {
             {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="w-12 h-[26px] bg-[rgba(255,255,255,0.12)] rounded-full relative cursor-pointer border border-[rgba(255,255,255,0.15)] transition-colors duration-[0.2s]"
+              className="w-12 h-[26px] bg-[var(--theme-toggle-track)] rounded-full relative cursor-pointer border border-[var(--theme-toggle-border)] transition-colors duration-[0.2s]"
               title="Toggle theme"
             >
               <div
-                className={`absolute top-[3px] w-[18px] h-[18px] rounded-full transition-all duration-[0.2s] ${
+                className={`absolute top-[3px] w-[18px] h-[18px] bg-[var(--theme-toggle-knob)] rounded-full transition-all duration-[0.2s] ${
                   theme === "light"
-                    ? "left-[22px] bg-white"
-                    : "left-[3px] bg-[#333]"
+                    ? "left-[22px] shadow-[0_1px_3px_rgba(0,0,0,0.18),0_0_0_1px_rgba(0,0,0,0.06)]"
+                    : "left-[3px]"
                 }`}
               />
             </button>
             {/* CTA */}
             <a
               href="#contact"
-              className="bg-white text-[#111] font-[var(--font-body)] text-[0.85rem] font-bold py-[0.55rem] px-[1.4rem] rounded-full no-underline transition-all duration-[0.2s] shadow-[0_4px_15px_rgba(255,255,255,0.1)] inline-flex items-center justify-center hover:translate-y-[-1px] hover:scale-[1.03] hover:bg-[#d4ff00]"
+              className={`bg-[var(--header-button-bg)] text-[#111] font-[var(--font-body)] text-[0.85rem] font-bold py-[0.55rem] px-[1.4rem] rounded-full border border-[var(--header-button-border)] no-underline transition-all duration-[0.2s] inline-flex items-center justify-center hover:translate-y-[-1px] hover:scale-[1.03] hover:bg-[#d4ff00] ${
+                theme === "light"
+                  ? "shadow-[0_1px_3px_rgba(0,0,0,0.06)]"
+                  : "shadow-[0_4px_15px_rgba(255,255,255,0.1)]"
+              }`}
             >
               Let's Talk
             </a>

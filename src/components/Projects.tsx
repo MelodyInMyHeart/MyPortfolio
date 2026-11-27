@@ -505,7 +505,7 @@ function Modal({
         {/* Close */}
         <button
           onClick={onClose}
-          className="sticky top-5 float-right mr-5 mt-5 w-10 h-10 rounded-full bg-[rgba(255,255,255,0.1)] backdrop-blur-[8px] border border-[rgba(255,255,255,0.2)] text-white flex items-center justify-center cursor-pointer z-[20] transition-all duration-[0.2s] hover:bg-[var(--color-accent-volt)] hover:text-[#111] hover:rotate-90"
+          className="modal-close-btn"
           aria-label="Close"
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -533,7 +533,8 @@ function Modal({
                 disabled={!prevVideo}
                 onClick={() => prevVideo && onSelectProject(prevVideo)}
               >
-                ← Prev Edit
+                <span className="nav-label-full">← Prev Edit</span>
+                <span className="nav-label-short">← Prev</span>
               </button>
               <span className="video-carousel-counter">
                 {String(currentVideoIdx + 1).padStart(2, "0")} / {String(videoList.length).padStart(2, "0")}
@@ -544,7 +545,8 @@ function Modal({
                 disabled={!nextVideo}
                 onClick={() => nextVideo && onSelectProject(nextVideo)}
               >
-                Next Edit →
+                <span className="nav-label-full">Next Edit →</span>
+                <span className="nav-label-short">Next →</span>
               </button>
             </div>
           </div>
@@ -555,7 +557,7 @@ function Modal({
         )}
 
         {/* Body */}
-        <div className="p-10 flex flex-col gap-10 max-sm:p-6 max-sm:gap-8">
+        <div className="modal-body-responsive">
           {/* Title */}
           <div>
             <div className="font-[var(--font-mono)] text-[0.78rem] uppercase text-[var(--color-accent-volt)] tracking-[0.1em] mb-2">

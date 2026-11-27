@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 relative z-[2]">
         <div className="flex flex-col gap-8 justify-between items-start pb-10 border-b border-[var(--color-border-subtle)] md:flex-row md:items-center">
           <a href="#hero" className="no-underline flex items-center gap-2">
-            <span className="font-[var(--font-heading)] text-[1.2rem] font-extrabold text-white">
+            <span className="font-[var(--font-heading)] text-[1.2rem] font-extrabold text-[var(--footer-brand-color)]">
               ONUABUCHI CHIDERA
             </span>
           </a>

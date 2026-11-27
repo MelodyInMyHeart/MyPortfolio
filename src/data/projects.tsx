@@ -458,28 +458,28 @@ export const testimonialsData: Testimonial[] = [
     name: "Victor Johnson",
     role: "Music Producer",
     company: "",
-    avatar: ""
+    avatar: "/assets/06-testimonials/brand-profile/victor-johnson.jpg"
   },
   {
     quote: "I didn't expect video to work this well for my field, but Chidera made it happen. He shot and edited my content, and in 4 months we passed 100K views across platforms. He made my expertise easy to watch and easy to trust.",
     name: "Miracle Onyema",
     role: "Accountant",
     company: "",
-    avatar: ""
+    avatar: "/assets/06-testimonials/brand-profile/onyema-miracle.jpg"
   },
   {
     quote: "Chidera built our visual and brand identity from the ground up, then stayed on for 3 months of social media designs. Everything felt consistent, clear and credible, which matters a lot when you're building trust in education. He gave skillnesst a look we're proud of.",
     name: "skillnesst",
     role: "Ed Tech Brand",
     company: "",
-    avatar: ""
+    avatar: "/assets/06-testimonials/brand-profile/skillnesst.jpg"
   },
   {
     quote: "Chidera developed our visual and brand identity, and it changed how customers see us. In a trade where trust matters, our brand now looks professional, reliable and established. He took the time to understand our work and turned it into an identity we're proud of.",
     name: "Donalds",
     role: "Household Repairs (Solar, AC & Electrical)",
     company: "",
-    avatar: ""
+    avatar: "/assets/06-testimonials/brand-profile/donalds.jpg"
   }
 ];
 

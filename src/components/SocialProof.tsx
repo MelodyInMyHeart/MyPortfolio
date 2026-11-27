@@ -92,36 +92,53 @@ export default function SocialProof() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid grid-cols-1 gap-7 min-[640px]:grid-cols-2">
+        <div className="grid grid-cols-1 gap-7 min-[640px]:grid-cols-2 items-stretch">
           {testimonialsData.map((t, i) => (
             <div
               key={i}
-              className="bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] p-9 flex flex-col justify-between gap-7 transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[var(--color-border-active)] hover:translate-y-[-4px]"
+              className="bg-[var(--color-bg-card)] border border-[var(--color-border-subtle)] rounded-[var(--radius-lg)] p-9 flex flex-col justify-start h-full gap-7 transition-all duration-[0.35s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[var(--color-border-active)] hover:translate-y-[-4px]"
             >
               <div className="flex gap-1 text-[var(--color-accent-volt)]">★★★★★</div>
               <p className="text-[0.95rem] leading-[1.7] text-[var(--color-text-secondary)]">
                 "{t.quote}"
               </p>
-              <div className="flex items-center gap-3.5 pt-4 border-t border-[var(--color-border-subtle)]">
-                {t.avatar ? (
-                  <img
-                    className="w-11 h-11 rounded-full object-cover border border-[var(--color-border-subtle)] flex-shrink-0"
-                    src={t.avatar}
-                    alt={`${t.name} profile photo`}
-                  />
-                ) : (
-                  <svg className="w-11 h-11 flex-shrink-0" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg" aria-label={`${t.name} profile photo`}>
+              <div className="flex items-center gap-3.5 pt-4 border-t border-[var(--color-border-subtle)] mt-auto">
+                <div className="w-11 h-11 flex-shrink-0">
+                  {t.avatar ? (
+                    <img
+                      className="w-11 h-11 rounded-full object-cover border border-[var(--color-border-subtle)] block"
+                      src={t.avatar}
+                      alt={`${t.name} profile photo`}
+                      width={44}
+                      height={44}
+                      onError={(e) => {
+                        const img = e.currentTarget;
+                        img.style.display = 'none';
+                        const fallback = img.nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = 'block';
+                      }}
+                    />
+                  ) : null}
+                  <svg
+                    className="w-11 h-11"
+                    style={{ display: t.avatar ? 'none' : 'block' }}
+                    width="44"
+                    height="44"
+                    viewBox="0 0 44 44"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
                     <circle cx="22" cy="22" r="22" fill="#1e1e1e"/>
                     <text x="22" y="27" textAnchor="middle" fontFamily="sans-serif" fontSize="14" fontWeight="700" fill="#d4ff00">
                       {t.name.split(' ').map((w: string) => w[0]).join('').slice(0, 2).toUpperCase()}
                     </text>
                   </svg>
-                )}
-                <div className="flex flex-col">
+                </div>
+                <div className="flex flex-col min-w-0">
                   <span className="font-[var(--font-heading)] text-[0.95rem] font-bold text-[var(--color-text-primary)]">
                     {t.name}
                   </span>
-                  <span className="font-[var(--font-mono)] text-[0.72rem] text-[var(--color-text-muted)]">
+                  <span className="font-[var(--font-mono)] text-[0.72rem] leading-[1.4] text-[var(--color-text-muted)]">
                     {t.role}{t.company ? ` · ${t.company}` : ''}
                   </span>
                 </div>

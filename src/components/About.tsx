@@ -41,8 +41,7 @@ export default function About() {
             </span>
 
             <h2 className="font-[var(--font-heading)] text-[clamp(1.4rem,2.5vw,1.85rem)] font-bold leading-[1.35] text-[var(--color-text-primary)] tracking-[-0.02em]">
-              "A cohesive creative practice where video gives life to motion,
-              and design anchors the identity."
+              "Every video I edit and every brand I build starts with one question: what should people feel?"
             </h2>
 
             <p className="text-[var(--color-text-secondary)] text-base leading-[1.75]">
@@ -70,8 +69,7 @@ export default function About() {
             </p>
 
             <div className="border-l-2 border-[var(--color-accent-volt)] pl-5 italic text-[var(--color-text-primary)] text-[1.05rem]">
-              "Animation and design should guide attention, not demand it. The
-              strongest work speaks with restrained power."
+              "Clarity first, style second. If the message doesn't land, the design hasn't done its job."
             </div>
 
             {/* Tools */}

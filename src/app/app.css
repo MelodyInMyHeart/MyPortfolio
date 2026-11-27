@@ -110,17 +110,17 @@ body {
 
 /* Hero decorative background overlay: dark & light mode blending with seamless bottom fade */
 .hero-bg-overlay {
-  opacity: 0.155;
+  opacity: 0.21;
   mix-blend-mode: screen;
-  filter: invert(1) hue-rotate(180deg) contrast(1.2) brightness(0.9) saturate(0.85);
+  filter: invert(1) hue-rotate(180deg) contrast(1.25) brightness(0.95) saturate(0.85);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 28%, #000 58%, rgba(0, 0, 0, 0.45) 78%, transparent 96%);
   mask-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 28%, #000 58%, rgba(0, 0, 0, 0.45) 78%, transparent 96%);
 }
 
 [data-theme="light"] .hero-bg-overlay {
   mix-blend-mode: multiply;
-  opacity: 0.165;
-  filter: brightness(1.02) contrast(1.55) saturate(0.7);
+  opacity: 0.21;
+  filter: brightness(1.02) contrast(1.65) saturate(0.7);
 }
 
 /* ─── Hero Animations ──────────────────────────────────────────────────────── */
